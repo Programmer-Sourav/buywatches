@@ -1,0 +1,49 @@
+.product-card-layout{
+    text-align: left;
+    width: 196px;
+    height: 100%;
+    box-shadow: 2px 2px 2px gainsboro;
+    margin: 8px;
+    border: 1px solid gainsboro;
+    padding-left: 8px;
+  }
+  .product-card-layout .image-style{
+    width: 192px;
+    height: 70%;
+  }
+  .product-card-layout .item-tags{
+  color: #94958b;
+  }
+  .product-card-layout .tag{
+    background: orangered;
+    width: fit-content;
+    padding: 4px;
+    color: white;
+    border-radius: 4px;
+  }
+  .product-card-layout .item-name{
+   color: #464655;
+  }
+  .product-card-layout .item-price{
+    color: #464655;
+  }
+  .product-card-layout .item-discount{
+  color: #94958b;
+  margin-left: 4px;
+  text-decoration: line-through;
+  }
+  .product-card-layout .discount{
+    margin-left: 4px;
+    color: green;
+  }
+  .product-card-layout .button-bg-two{
+   height: 32px;
+   background: #d64045;
+   color: white;
+   border: none;
+   width: 96%;
+   margin-top: 8px;
+   margin-bottom: 8px;
+   border-radius: 4px;
+  
+  }

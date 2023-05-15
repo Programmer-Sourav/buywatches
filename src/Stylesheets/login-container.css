@@ -1,0 +1,33 @@
+
+.parent-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 64px;
+}
+
+.login-container-class{
+    width: 256px;
+    height: 356px;
+    box-shadow: 0 0 0 2px #ccc; 
+    align-self: center;
+    text-align: left;
+    padding: 64px;
+    
+}
+
+.login-info{
+    height: 32px;
+    width: 90%;
+    border-radius: 4px;
+    outline: none;
+}
+
+.sign-button{
+background: #d64045;
+border: none;
+width: 90%;
+height: 32px;
+color: white;
+border-radius: 4px;
+}

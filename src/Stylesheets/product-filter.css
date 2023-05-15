@@ -1,0 +1,17 @@
+.product-filter-app{
+    text-align: left;
+    background: #eddfef;
+    padding-left: 8px;
+    width: 256px;
+    height: 100%;
+    }
+    .list-item-style{
+    list-style: none;
+    }
+    .button-style{
+      margin: 8px;
+      background: lightcoral;
+      border: none;
+      text-align: center;
+      color: white;
+    }

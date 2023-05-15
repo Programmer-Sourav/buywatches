@@ -1,0 +1,96 @@
+.mycart-container{
+    margin: 32px;
+   
+}
+
+.my-cart{
+    width: 100%
+}
+
+.mycart-style{
+    float: left;
+    text-align: left;
+    width: 416px;
+    height: 152px;
+    margin-left: 128px;
+    margin-top: 48px;
+    border: 1px solid gainsboro;
+    padding-left: 8px;
+    float: left;
+    
+  }
+  
+  .details-div{
+    float: left;
+    margin: 16px;
+    width: 292px;
+    height: 392px;
+    margin-top: 48px;
+    padding-left: 16px;
+    margin-left: 64px;
+    border: 0.5px solid gainsboro;
+    box-shadow: 4px 4px 4px gainsboro;
+    
+  }
+
+  .image-cart-style{
+    width: 128px;
+    height: 100%;
+    float: left;
+  }
+  .item-name-cart{
+   color: #464655;
+  }
+  .mycart-style .item-current-price-my-cart{
+    color: #464655;
+  }
+  .mycart-style .item-price-my-cart{
+  color: #94958b;
+  margin-left: 4px;
+  text-decoration: line-through;
+  font-size: 16px;
+  }
+  .mycart-style.item-offer-my-cart{
+    margin-left: 8px;
+    color: green;
+  }
+  .mycart-style .button-bg-two{
+   height: 28px;
+   background: #d64045;
+   color: white;
+   border: none;
+   width: 30%;
+   margin: 8px;
+   border-radius: 4px;
+  }
+  .mycart-style .button-bg-three{
+    height: 28px;
+    background: orange;
+    color: white;
+    border: none;
+    width: 30%;
+    margin: 8px;
+    border-radius: 4px;
+   }
+  .mycart-style .button-small{
+    border: none;
+    padding: 4px;
+    width: 24px;
+  }
+  .mycart-style .outline-cart-invoice{
+    outline: "dotted"
+  }
+  .cart-info{
+  text-align: left;
+  height: 128px
+  }
+  .checkout-button{
+    background: #d64045;
+    height: 40px;
+    width: 70%;
+    color: white;
+  }
+  .saved-container{
+    color: green
+  }
+ 

@@ -1,0 +1,65 @@
+.product-description-layout{
+
+    text-align: left;
+    align-items: center;
+    margin-left: 256px ; 
+    margin-top: 128px
+    }
+    .product-description-layout .image-style{
+      float: left;
+      margin: 4px;
+      width: 512px;
+      border: 1px gray solid;
+      border-radius: 8px;
+      
+      
+    }
+    .product-description-layout .details-div{
+      margin: 16px;
+      float: left;
+      width: 30%;
+      background: #eddfef;
+      margin-top: -8px;
+      padding-left: 16px;
+    }
+    .item-name{
+      font-size: 32px;
+      color: #464655
+    }
+    
+    .collection{
+      font-size: 24px;
+      color: #b7b6c1
+    }
+    .item-price{
+      font-size: 24px;
+    }
+    .item-discount{
+      font-size: 24px;
+      margin-left: 8px;
+      color: #b7b6c1;
+      text-decoration: line-through;
+    }
+    
+    .item-offer{
+      font-size: 32px;
+      margin-left: 8px;
+      color: green
+    }
+    
+    .button-style-one{
+      background: orangered;
+      color: white;
+      height: 40px;
+      width: 40%;
+      margin: 8px;
+      border: none;
+      border-radius: 8px;
+    }
+    
+    .hr{
+      height: 1px solid #3dd0a9
+    }
+    .item-description{
+      color: #000000
+    }
