@@ -6,10 +6,13 @@ import ProductCardForWishlist from "./Components/ProductCardForWishlist"
 import MyCart from "./pages/MyCart"
 import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router-dom"
+import ProductList from "./pages/ProductList";
 import MockMan from "mockman-js"
 
 
 import './App.css';
+import { AuthToken } from "./AuthToken";
+
 
 
 
@@ -24,8 +27,10 @@ function App() {
        {/* <MyCart/> */}
        {/* <LoginPage/> */}
        <Routes> 
-        <Route path="/" element={<h1>Hello Welcome</h1>}/>
+        {/* <Route path="/" element={<h1>Hello Welcome</h1>}/> */}
+        <Route path="/" element={<AuthToken/>}/>
         <Route path="/mockman" element={<MockMan/>}/>
+        <Route path="/store" element={<ProductList/>} />
        </Routes>
     </div>
   );

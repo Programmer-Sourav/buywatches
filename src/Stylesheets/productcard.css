@@ -1,15 +1,16 @@
 .product-card-layout{
     text-align: left;
-    width: 196px;
-    height: 100%;
+    width: 80%;
+    height: 464px;
     box-shadow: 2px 2px 2px gainsboro;
     margin: 8px;
     border: 1px solid gainsboro;
     padding-left: 8px;
+    flex: 0 1 calc(20% - 8px);
   }
   .product-card-layout .image-style{
-    width: 192px;
-    height: 70%;
+    width: 100%;
+    height: 50%;
   }
   .product-card-layout .item-tags{
   color: #94958b;
@@ -20,17 +21,22 @@
     padding: 4px;
     color: white;
     border-radius: 4px;
+    height: 20px;
   }
   .product-card-layout .item-name{
    color: #464655;
+   font-size: 16px;
+   height: 40px;
   }
   .product-card-layout .item-price{
     color: #464655;
+    font-size: 16px;
   }
   .product-card-layout .item-discount{
   color: #94958b;
   margin-left: 4px;
   text-decoration: line-through;
+  font-size: 16px;
   }
   .product-card-layout .discount{
     margin-left: 4px;

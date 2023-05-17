@@ -15,7 +15,8 @@ export const products = [
     brand: "apple",
     category: "luxury",
     img: "https://sslimages.shoppersstop.com/sys-master/images/h4e/hc2/28747031019550/WFIFFS5960I_NoColour.jpg_2000Wx3000H",
-    color: "Blue"
+    color: "Blue",
+    tag:"Trending"
   },
   {
     _id: uuid(),
@@ -26,7 +27,8 @@ export const products = [
     brand: "Fossil",
     category: "Casual",
     img: "https://sslimages.shoppersstop.com/sys-master/images/h4e/hc2/28747031019550/WFIFFS5960I_NoColour.jpg_2000Wx3000H",
-    color: "Blue"
+    color: "Blue",
+    tag:"Selling fast"
   },
   {
     _id: uuid(),
@@ -37,7 +39,8 @@ export const products = [
     brand: "Titan",
     Category:"Smartwatch",
     img: "https://staticimg.titan.co.in/Titan/Catalog/90155AP03_1.jpg?impolicy=pqmed&imwidth=640",
-    color: "green"
+    color: "green",
+    tag:"New"
   },
    {
     _id: uuid(),
@@ -48,7 +51,8 @@ export const products = [
     brand: "Titan",
     Category:"Smartwatch",
     img: "https://staticimg.titan.co.in/Titan/Catalog/90155AP04_1.jpg?impolicy=pqmed&imwidth=640",
-    color: "black"
+    color: "black",
+    tag:"Trending"
   },
    {
     _id: uuid(),
@@ -59,7 +63,8 @@ export const products = [
     brand: "First track",
     Category:"Smartwatch, wearables",
     img: "https://sslimages.shoppersstop.com/sys-master/images/hd8/h19/26908966682654/WFT38072AP01_NoColour.jpg_2000Wx3000H",
-    color: "black"
+    color: "black",
+    tag:"Trending"
   },
   {
     _id: uuid(),
@@ -70,7 +75,8 @@ export const products = [
     brand: "First track",
     Category:"Smartwatch, wearables",
     img: "https://sslimages.shoppersstop.com/sys-master/images/h74/h76/26908957900830/WFT38072AP03_NoColour.jpg_2000Wx3000H",
-    color: "pink"
+    color: "pink",
+    tag:"Trending"
   },
     {
     _id: uuid(),
@@ -81,7 +87,8 @@ export const products = [
     brand: "Tommy Hilfiger",
     Category:"casual",
     img: "https://sslimages.shoppersstop.com/sys-master/images/h57/h08/28707894099998/WTONDTH1791778_NoColour.jpg_2000Wx3000H",
-    color: "Blue"
+    color: "Blue",
+    tag:"New"
   },
     {
     _id: uuid(),
@@ -92,7 +99,8 @@ export const products = [
     brand: "Fossil",
     Category:"Smartwatch, wearables",
     img: "https://sslimages.shoppersstop.com/sys-master/images/h86/haa/26734120828958/WFIF-FTW6077_NoColour.jpg_2000Wx3000H",
-    color: "Golden"
+    color: "Golden",
+    tag:"Selling fast"
   },
   {
     _id: uuid(),
@@ -103,7 +111,8 @@ export const products = [
     brand: "First track",
     Category:"Smartwatch, wearables",
     img: "https://sslimages.shoppersstop.com/sys-master/images/h0c/hd5/27614754734110/WFT38073AP03_NoColour.jpg_2000Wx3000H",
-    color: "pink"
+    color: "pink",
+    tag:"New"
   },
   {
     _id: uuid(),
@@ -114,7 +123,8 @@ export const products = [
     brand: "Casio",
     Category:"Analog, digital",
     img: "https://rukminim1.flixcart.com/image/832/832/ku4ezrk0/watch/r/m/m/g1159-gm-2100-1adr-casio-men-original-imag7b2efczs8g9h.jpeg?q=70",
-    color: "pink"
+    color: "pink",
+    tag:"Selling fast"
   },
    {
     _id: uuid(),
@@ -125,7 +135,8 @@ export const products = [
     brand: "Fossil",
     Category:"Analog",
     img: "https://fossil.scene7.com/is/image/FossilPartners/FS5841_main?$sfcc_fos_hi-res$",
-    color: "brown"
+    color: "brown",
+    tag:"Huge Discount"
   },
    {
     _id: uuid(),
@@ -136,7 +147,8 @@ export const products = [
     brand: "Casio",
     Category:"Analog, digital",
     img: "https://cdn.shopify.com/s/files/1/0068/6712/4282/products/unnamed_dbf0ad86-99f5-40b6-9b65-f7dca3ac921c_grande.jpg?v=1624941464",
-    color: "pink"
+    color: "pink",
+    tag:"Huge Discount"
   },
   {
     _id: uuid(),
