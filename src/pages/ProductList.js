@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ProductsContext } from "../contexts/ProductsContext";
 import ProductCard from "../Components/ProductCard";
+import ProductFilter from "../pages/ProductFilter"
 import "../Stylesheets/productslist.css"
 
 export default function ProductList(){
@@ -9,6 +10,7 @@ export default function ProductList(){
     
     return(
         <div className="list-layout"> 
+        <ProductFilter/>
             {
             productsList.map((product)=>(
                 <ProductCard {...product}/>

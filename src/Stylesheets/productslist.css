@@ -1,6 +1,7 @@
 .list-layout{
     display: flex;
     flex-direction: row;
-    flex-flow: row wrap;
-    position: relative;
+    flex-wrap: wrap;
+    margin-top: 8px;
+   
 }
