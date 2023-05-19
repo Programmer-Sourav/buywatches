@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
+import { initialState, productsReducer } from "../reducer/ProductsReducer";
 
 export const ProductsContext = createContext();
 
@@ -6,6 +7,7 @@ export function ProductsProvider({children}){
 
    const [ productsList, setProductsList ] = useState([]) /**State to hold data from api */
    const [ loading, setLoading ] = useState(false)
+   const [state, dispatch] = useReducer(productsReducer, initialState)
 
    const getProducts = async() =>{
     setLoading(true)
@@ -28,7 +30,7 @@ export function ProductsProvider({children}){
    useEffect(()=>{getProducts()},[])
 
     return(
-        <ProductsContext.Provider value = {{productsList, loading}}>{children}</ProductsContext.Provider>
+        <ProductsContext.Provider value = {{productsList, loading, state, dispatch}}>{children}</ProductsContext.Provider>
     )
 
 }

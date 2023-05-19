@@ -26,6 +26,7 @@ function App() {
        {/* <ProductCardForWishlist/> */}
        {/* <MyCart/> */}
        {/* <LoginPage/> */}
+       
        <Routes> 
         {/* <Route path="/" element={<h1>Hello Welcome</h1>}/> */}
         <Route path="/" element={<AuthToken/>}/>

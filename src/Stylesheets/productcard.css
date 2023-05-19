@@ -1,11 +1,11 @@
 .product-card-layout{
     text-align: left;
-    width: 80%;
-    height: 464px;
+    width: fit-content;
+    height: 452px;
     box-shadow: 2px 2px 2px gainsboro;
-    margin: 8px;
     border: 1px solid gainsboro;
     padding-left: 8px;
+    margin-left: 8px;
     flex: 0 1 calc(20% - 8px);
   }
   .product-card-layout .image-style{

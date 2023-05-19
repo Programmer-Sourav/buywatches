@@ -1,6 +1,12 @@
+import { useContext } from "react"
 import "../Stylesheets/product-filter.css"
+import { ProductsContext } from "../contexts/ProductsContext"
+import { ACTION_TYPES } from "../reducer/ProductsReducer"
 
 export default function ProductFilter(){
+
+  const {dispatch} =  useContext(ProductsContext)
+
   return(
     <div className="product-filter-app"> 
     <strong>Price</strong>   
@@ -8,10 +14,10 @@ export default function ProductFilter(){
 
     <div className = "radio-design">
     <li className="list-item-style"><label> 
-    <input type="radio" value="lTh"  onChnage={{}} name="sort-by-price" />
+    <input type="radio" value="lTh"  onChnage={(e)=>{dispatch({ type: ACTION_TYPES.LOW_TO_HIGH, payload: e.target.value });}} name="sort-by-price" />
     Low To High </label> </li>
    <li className="list-item-style"> <label> 
-    <input type="radio" value={"hTl"} onChnage={{}} name="sort-by-price"/>
+    <input type="radio" value={"hTl"} onChnage={(e)=>{dispatch({type: ACTION_TYPES.HIGH_TO_LOW, payload: e.target.value })}} name="sort-by-price"/>
     High To Low</label> </li>
     </div>
     <p><strong> Price range </strong> </p>
@@ -19,28 +25,28 @@ export default function ProductFilter(){
     <p><strong> Availability </strong> </p>
     <li className="list-item-style">
     <label> 
-    <input type="checkbox" value="Out-of-stock" onChnage={{}} name="availibility" /> 
+    <input type="checkbox" value="cash-on-delivery" onChnage={(e)=>{dispatch({type: ACTION_TYPES.CASH_ON_DELIVERY, payload: e.target.value})}} name="availibility" /> 
     Cash on Delivery </label> </li>
     <li className="list-item-style">
     <label>
-    <input type="checkbox" value="One-day-delivery" onChnage={{}} name="availibility"/> 
+    <input type="checkbox" value="One-day-delivery" onChnage={(e)=>{dispatch({type: ACTION_TYPES.ONE_DAY_DELIVERY, payload: e.target.value})}} name="availibility"/> 
     One Day delivery </label>
     </li>
     <p> <strong> Reviews and Ratings </strong> </p>
-    <li className="list-item-style"><label> <input type="radio" value="5" onChnage={{}} name="reviews"/> 5 stars only</label></li>
-    <li className="list-item-style"><label> <input type="radio" value="4" onChnage={{}} name="reviews"/> Above 4 stars</label></li>
-    <li className="list-item-style"><label> <input type="radio" value="3" onChnage={{}} name="reviews"/> Above 3 Stars</label></li>
-    <li className="list-item-style"><label> <input type="radio" value="2.9" onChnage={{}} name="reviews"/> Below 3 Stars</label></li>
+    <li className="list-item-style"><label> <input type="radio" value="5" onChnage={(e)=>{dispatch({type: ACTION_TYPES.FIVE_STARS, payload: e.target.value})}} name="reviews"/> 5 stars only</label></li>
+    <li className="list-item-style"><label> <input type="radio" value="4" onChnage={(e)=>{dispatch({type: ACTION_TYPES.ABOVE_FOUR_STAR, payload: e.target.value})}} name="reviews"/> Above 4 stars</label></li>
+    <li className="list-item-style"><label> <input type="radio" value="3" onChnage={(e)=>{dispatch({type: ACTION_TYPES.ABOVE_THREE_STAR, payload: e.target.value})}} name="reviews"/> Above 3 Stars</label></li>
+    <li className="list-item-style"><label> <input type="radio" value="2.9" onChnage={(e)=>{dispatch({type: ACTION_TYPES.BELOW_THREE_STAR, payload: e.target.value})}} name="reviews"/> Below 3 Stars</label></li>
     <p> <strong>By Gender </strong></p>
-    <li className="list-item-style"> <label><input type="checkbox" value="Male" onChange={{}} name="gender"/> Male </label></li>
-    <li className="list-item-style"> <label><input type="checkbox" value="Female" onChange={{}} name="gender"/> Female </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Male" onChange={(e)=>{dispatch({type: ACTION_TYPES.MALE, payload: e.target.value})}} name="gender"/> Male </label></li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Female" onChange={(e)=>{dispatch({type: ACTION_TYPES.FEMALE, payload: e.target.value})}} name="gender"/> Female </label> </li>
     <p> <strong>By Category</strong></p>
-    <li className="list-item-style"> <label><input type="checkbox" value="Smartwatch" onChange={{}} name="category"/> Smartwatches </label></li>
-    <li className="list-item-style"> <label><input type="checkbox" value="Classic" onChange={{}} name="category"/> Chronological </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Smartwatch" onChange={(e)=>{dispatch({type: ACTION_TYPES.SMARTWATCHES, payload: e.target.value})}} name="category"/> Smartwatches </label></li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Chronological" onChange={(e)=>{dispatch({type: ACTION_TYPES.CHRONOLOGICAL, payload: e.target.value})}} name="category"/> Chronological </label> </li>
     <p> <strong>By Use</strong></p>
-    <li className="list-item-style"> <label><input type="checkbox" value="workwear" onChange={{}} name="by-use"/> Work wear </label></li>
-    <li className="list-item-style"> <label><input type="checkbox" value="Stylish" onChange={{}} name="by-use"/> Stylish </label> </li>
-    <li className="list-item-style"> <label><input type="checkbox" value="fitness" onChange={{}} name="by-use"/> Fitness </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="workwear" onChange={(e)=>{dispatch({type: ACTION_TYPES.WORKWEAR, payload: e.target.value})}} name="by-use"/> Work wear </label></li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Stylish" onChange={(e)=>{dispatch({type: ACTION_TYPES.STYLISH, payload: e.target.value})}} name="by-use"/> Stylish </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="fitness" onChange={(e)=>{dispatch({type: ACTION_TYPES.FITNESS, payload: e.target.value})}} name="by-use"/> Fitness </label> </li>
     </div>
   )
 }
