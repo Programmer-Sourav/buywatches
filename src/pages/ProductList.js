@@ -31,10 +31,11 @@ export default function ProductList(){
             sortedProducts = sortedProducts.filter((product)=>product.ratings>= byRatings)
             }
         } 
-        if(byAvailability){
-          
-           // sortedProducts = sortedProducts.filter((item)=>item[byAvailability])
-           sortedProducts = sortedProducts.filter((item)=>item.availability=== byAvailability)
+        if(byAvailability.length>0){
+            console.log(444, byAvailability)
+            //sortedProducts = sortedProducts.filter((item)=>item[byAvailability])
+          sortedProducts = sortedProducts.filter((item)=>item.availability=== byAvailability)
+        
         }
         return sortedProducts 
     }
