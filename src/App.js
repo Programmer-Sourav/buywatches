@@ -32,6 +32,7 @@ function App() {
         <Route path="/" element={<AuthToken/>}/>
         <Route path="/mockman" element={<MockMan/>}/>
         <Route path="/store" element={<ProductList/>} />
+        <Route path="/login" element={<LoginPage/>}/>
        </Routes>
     </div>
   );
