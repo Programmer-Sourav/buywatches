@@ -2,8 +2,8 @@ import "../Stylesheets/productcard.css"
 
 export default function ProductCard({_id, tag, brand, category, color, discounted_price, id, img, item, price, title}){
     const discount_percentage = Math.round((price-discounted_price/100))
-    console.log(discount_percentage)
-    console.log(category)
+    //console.log(discount_percentage)
+    console.log(discounted_price)
     return(
      <div className="product-card-layout">
       <img src={img} alt="productimg" className="image-style"/>

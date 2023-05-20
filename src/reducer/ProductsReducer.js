@@ -2,7 +2,7 @@ export const initialState = {
 
     sortByPrice: "",
     range: "",
-    byAvailability:{},
+    byAvailability:"",
     byRatings:"",
     byGender: "",
     byCategory: {},
@@ -33,43 +33,50 @@ export const ACTION_TYPES = {
 
 export const productsReducer = (state, action) =>{
     console.log(action.type)
+    console.log(action.payload)
 
     switch(action.type){
         case ACTION_TYPES.LOW_TO_HIGH: 
+        console.log(state)
+        console.log({...state, sortByPrice: action.payload})
         return {...state, sortByPrice: action.payload}
 
         case ACTION_TYPES.HIGH_TO_LOW: 
         return {...state, sortByPrice: action.payload}
 
-        case RANGE: 
+        case ACTION_TYPES.RANGE: 
         return {...state, range: action.payload}
 
-        case CASH_ON_DELIVERY:
-            return {...state, byAvailability: {...state.byAvailability, ...action.payload}}
+        case ACTION_TYPES.CASH_ON_DELIVERY:
+            console.log(144, state)
+            // console.log(146, [...state, action.payload])
+            // return [...state, action.payload]
+           return {...state, byAvailability: action.payload}
 
-        case ONE_DAY_DELIVERY: 
-            return {...state, byAvailability: {...state.byAvailability, ...action.payload}}
-        case FIVE_STARS: 
+        case ACTION_TYPES.ONE_DAY_DELIVERY: 
+        console.log(141,{...state, byAvailability: action.payload})
+        return {...state, byAvailability: action.payload}
+        case ACTION_TYPES.FIVE_STARS: 
             return {...state, byRatings: action.payload}
-        case ABOVE_FOUR_STAR: 
+        case ACTION_TYPES.ABOVE_FOUR_STAR: 
             return {...state, byRatings: action.payload}
-        case ABOVE_THREE_STAR: 
+        case ACTION_TYPES.ABOVE_THREE_STAR: 
             return {...state, byRatings: action.payload}
-        case BELOW_THREE_STAR:
+        case ACTION_TYPES.BELOW_THREE_STAR:
             return {...state, byRatings: action.payload}
-        case MALE: 
+        case ACTION_TYPES.MALE: 
             return {...state, byGender: action.payload}
-        case FEMALE: 
+        case ACTION_TYPES.FEMALE: 
             return {...state, byGender: action.payload}
-        case SMARTWATCHES: 
+        case ACTION_TYPES.SMARTWATCHES: 
             return {...state, byCategory: {...state.byCategory, ...action.payload}}
-        case CHRONOLOGICAL:
+        case ACTION_TYPES.CHRONOLOGICAL:
             return {...state, byCategory: {...state.byCategory, ...action.payload}}
-        case WORKWEAR: 
+        case ACTION_TYPES.WORKWEAR: 
              return {...state, byUse: {...state.byUse, ...action.payload}}
-        case STYLISH: 
+        case ACTION_TYPES.STYLISH: 
              return {...state, byUse: {...state.byUse, ...action.payload}}
-        case FITNESS: 
+        case ACTION_TYPES.FITNESS: 
              return {...state, byUse: {...state.byUse, ...action.payload}}
     }
 }
