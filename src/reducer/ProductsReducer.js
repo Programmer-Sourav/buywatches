@@ -27,13 +27,15 @@ export const ACTION_TYPES = {
     CHRONOLOGICAL: "Chronological",
     WORKWEAR: "WORK_WEAR",
     STYLISH: "STYLISH",
-    FITNESS: "FITNESS"
+    FITNESS: "FITNESS", 
+    CLEAR: "Clear"
 
 }
 
 export const productsReducer = (state, action) =>{
-    console.log(action.type)
-    console.log(action.payload)
+    console.log(123,action.type)
+    console.log(121,action.payload)
+    
 
     switch(action.type){
         case ACTION_TYPES.LOW_TO_HIGH: 
@@ -78,6 +80,20 @@ export const productsReducer = (state, action) =>{
              return {...state, byUse: {...state.byUse, ...action.payload}}
         case ACTION_TYPES.FITNESS: 
              return {...state, byUse: {...state.byUse, ...action.payload}}
+        case ACTION_TYPES.CLEAR:
+           
+             return {
+                sortByPrice: "",
+                range: "",
+                rangeVal:1000,
+                byAvailability: "",
+                byRatings:"",
+                byGender: "",
+                byCategory: {},
+                byUse: {},
+             } 
+        default: 
+        return state        
     }
 }
 

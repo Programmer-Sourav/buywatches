@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import "../Stylesheets/product-filter.css"
 import { ProductsContext } from "../contexts/ProductsContext"
 import { ACTION_TYPES } from "../reducer/ProductsReducer"
@@ -6,11 +6,11 @@ import { ACTION_TYPES } from "../reducer/ProductsReducer"
 export default function ProductFilter(){
 
   const {dispatch, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse} =  useContext(ProductsContext)
-
+  const [rangeVal, setRangeVal ] = useState(1000)
   return(
     <div className="product-filter-app"> 
     <strong>Price</strong>   
-    <button className="button-style"> Clear </button>
+    <button className="button-style" value="Clear" onClick={(e)=>{dispatch({type: ACTION_TYPES.CLEAR, payload: e.target.value , rangeVal})}}> Clear </button>
 
     <div className = "radio-design">
     <li className="list-item-style"><label> 
@@ -21,7 +21,10 @@ export default function ProductFilter(){
     High To Low</label> </li>
     </div>
     <p><strong> Price range </strong> </p>
-    <input type="range" min={0} value={range} max={100} onChange={(e)=>{dispatch({type: ACTION_TYPES.RANGE, payload: e.target.value})}} />
+    <label style={{color:"orange"}}><strong>1000</strong></label>
+    <input type="range" min="1000" step="3000" value={rangeVal} max="99000" onChange={(e)=>{
+      setRangeVal(e.target.value);dispatch({type: ACTION_TYPES.RANGE, payload: e.target.value})}} />
+      <label style={{color:"orange"}}><strong>99000</strong></label>
     <p><strong> Availability </strong> </p>
     <li className="list-item-style">
     <label> 
