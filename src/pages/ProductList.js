@@ -8,12 +8,16 @@ export default function ProductList(){
 
     const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse } = useContext(ProductsContext)
     
-   
+   console.log(1211, range)
     const updatedProducts = () =>{
        
         let sortedProducts = productsList
        // console.log("SORTED ",sortedProducts)
 
+        if(range){
+            console.log(555, range)
+            sortedProducts = sortedProducts.filter((item)=>item.price<=range)
+        }
         if(sortByPrice){
            
             sortedProducts = sortedProducts.sort((p1, p2)=> sortByPrice==="lTh"? p1.price - p2.price : productsList)

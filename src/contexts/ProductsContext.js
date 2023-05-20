@@ -31,7 +31,7 @@ export function ProductsProvider({children}){
 
 
     return(
-        <ProductsContext.Provider value = {{productsList, loading, state, sortByPrice: state.sortByPrice, range: state.range, byAvailability: state.byAvailability, byRatings: state.byRatings, byGender: state.byGender, byCategory: state.byCategory, byUse: state.byUse, dispatch}}>{children}</ProductsContext.Provider>
+        <ProductsContext.Provider value = {{productsList, loading, state, sortByPrice: state.sortByPrice, range: state.range, byAvailability: state.byAvailability, byRatings: state.byRatings, byGender: state.byGender, byCategory: state.byCategory, byUse: state.byUse,  dispatch}}>{children}</ProductsContext.Provider>
     )
 
 }
