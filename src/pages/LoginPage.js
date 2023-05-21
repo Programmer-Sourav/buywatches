@@ -1,5 +1,8 @@
 
 import { useContext, useState } from "react"
+
+import { useState } from "react"
+
 import FixedHeader from "../FixedHeader/FixedHeader"
 import "../Stylesheets/login-container.css"
 import { AuthContext } from "../contexts/AuthContext"
@@ -10,9 +13,11 @@ export default function LoginPage(){
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
 
+
     const { token, setToken } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
+
 
     const signInBtn = async (email, password) =>{
         try{
@@ -28,6 +33,7 @@ export default function LoginPage(){
             })
 
             const { encodedToken } = await res.json();
+
             setToken(localStorage.setItem("encodedToken", encodedToken))
             console.log(441, localStorage.getItem("encodedToken"))
            
@@ -39,6 +45,13 @@ export default function LoginPage(){
                 navigate("/fakewelcome")
             }
             
+
+            localStorage.setItem("encodedToken", encodedToken)
+            //console.log(441, localStorage.getItem("encodedToken"))
+            if(localStorage.getItem("encodedToken")!== "undefined"){
+                
+            }
+
         }
         catch(e){
         console.error(e)
@@ -52,11 +65,11 @@ export default function LoginPage(){
             <div className="login-container-class">
             <div>
             <p> <label>Enter Your Email </label></p>
-            <input type="text" className="login-info"/>
+            <input type="text" value = {email} onChange={(event)=>{setEmail(event.target.value)}} className="login-info"/>
             </div>
             <div>
             <p> <label>Enter Your Password </label></p>
-            <input type="password" className="login-info"/>
+            <input type="password" value = {password} onChange={(event)=>{setPassword(event.target.value)}} className="login-info"/>
             </div>
             <p> Forgot Password? </p>
             <button onClick={()=>{signInBtn(email, password)}} className="sign-button">Sign In</button>

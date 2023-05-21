@@ -28,7 +28,7 @@ export default function ProductFilter(){
     <p><strong> Availability </strong> </p>
     <li className="list-item-style">
     <label> 
-    <input type="checkbox" value="cash-on-delivery" onChange={(e)=>{dispatch({type: ACTION_TYPES.CASH_ON_DELIVERY, payload: e.target.value})}} name="availibility" /> 
+    <input type="checkbox" value="cash-on-delivery" onChange={(e)=>{dispatch({type: ACTION_TYPES.CASH_ON_DELIVERY, payload: e.target.value})}} name="availibility"/> 
     Cash on Delivery </label> </li>
     <li className="list-item-style">
     <label>

@@ -2,7 +2,7 @@ export const initialState = {
 
     sortByPrice: "",
     range: "",
-    byAvailability:"",
+    byAvailability:{},
     byRatings:"",
     byGender: "",
     byCategory: {},
@@ -12,6 +12,7 @@ export const initialState = {
 
 export const ACTION_TYPES = {
 
+    INITIALIZE : "INITIALIZE",
     LOW_TO_HIGH: "LOW_TO_HIGH",
     HIGH_TO_LOW: "HIGH_TO_LOW",
     RANGE :"RANGE",
@@ -35,9 +36,13 @@ export const ACTION_TYPES = {
 export const productsReducer = (state, action) =>{
     console.log(123,action.type)
     console.log(121,action.payload)
+    console.log(4444, action.cur_products)
     
 
     switch(action.type){
+        case ACTION_TYPES.INITIALIZE:
+        // console.log(4545, {...state, currentProducts: action.cur_products}) 
+        return {...state, currentProducts: action.cur_products}    
         case ACTION_TYPES.LOW_TO_HIGH: 
         console.log(state)
         console.log({...state, sortByPrice: action.payload})
@@ -51,12 +56,13 @@ export const productsReducer = (state, action) =>{
 
         case ACTION_TYPES.CASH_ON_DELIVERY:
             console.log(144, state)
-            // console.log(146, [...state, action.payload])
-            // return [...state, action.payload]
-           return {...state, byAvailability: action.payload}
+            // console.log(146, [...state.byAvailability, action.payload])
+            //console.log(166, {...state, byAvailability: [...state.byAvailability, action.payload]})
+          //return {...state, byAvailability: [...state.byAvailability, action.payload]}
+          return {...state, byAvailability: action.payload}
 
         case ACTION_TYPES.ONE_DAY_DELIVERY: 
-        console.log(141,{...state, byAvailability: action.payload})
+       // console.log(141,{...state, byAvailability: action.payload})
         return {...state, byAvailability: action.payload}
         case ACTION_TYPES.FIVE_STARS: 
             return {...state, byRatings: action.payload}
