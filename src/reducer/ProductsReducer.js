@@ -2,7 +2,7 @@ export const initialState = {
 
     sortByPrice: "",
     range: "",
-    byAvailability:[],
+    byAvailability:{},
     byRatings:"",
     byGender: "",
     byCategory: {},
@@ -56,7 +56,7 @@ export const productsReducer = (state, action) =>{
 
         case ACTION_TYPES.CASH_ON_DELIVERY:
             console.log(144, state)
-            console.log(146, [...state.byAvailability, action.payload])
+            // console.log(146, [...state.byAvailability, action.payload])
             //console.log(166, {...state, byAvailability: [...state.byAvailability, action.payload]})
           //return {...state, byAvailability: [...state.byAvailability, action.payload]}
           return {...state, byAvailability: action.payload}
