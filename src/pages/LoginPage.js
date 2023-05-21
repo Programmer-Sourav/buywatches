@@ -59,7 +59,7 @@ export default function LoginPage(){
             <input type="password" className="login-info"/>
             </div>
             <p> Forgot Password? </p>
-            <button onClick={{}} className="sign-button">Sign In</button>
+            <button onClick={()=>{signInBtn(email, password)}} className="sign-button">Sign In</button>
             <p> Don't have an account? Sign up</p>
        </div>
        </div>
