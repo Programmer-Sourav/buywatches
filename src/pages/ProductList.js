@@ -6,12 +6,13 @@ import "../Stylesheets/productslist.css"
 
 export default function ProductList(){
 
-    const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse } = useContext(ProductsContext)
+    const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse, productsState } = useContext(ProductsContext)
     
    console.log(1211, range)
+   console.log(1444, productsState)
     const updatedProducts = () =>{
        
-        let sortedProducts = productsList
+        let sortedProducts = productsState
        // console.log("SORTED ",sortedProducts)
 
         if(range){

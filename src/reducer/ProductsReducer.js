@@ -12,6 +12,7 @@ export const initialState = {
 
 export const ACTION_TYPES = {
 
+    INITIALIZE : "INITIALIZE",
     LOW_TO_HIGH: "LOW_TO_HIGH",
     HIGH_TO_LOW: "HIGH_TO_LOW",
     RANGE :"RANGE",
@@ -35,9 +36,13 @@ export const ACTION_TYPES = {
 export const productsReducer = (state, action) =>{
     console.log(123,action.type)
     console.log(121,action.payload)
+    console.log(4444, action.cur_products)
     
 
     switch(action.type){
+        case ACTION_TYPES.INITIALIZE:
+        // console.log(4545, {...state, currentProducts: action.cur_products}) 
+        return {...state, currentProducts: action.cur_products}    
         case ACTION_TYPES.LOW_TO_HIGH: 
         console.log(state)
         console.log({...state, sortByPrice: action.payload})

@@ -19,13 +19,12 @@ export default function LoginPage(){
                 body: JSON.stringify(creds)
             })
 
-            //const { encodedToken } = await res.json();
-            // const response = await res.json();
-            // console.log(response)
-
             const { encodedToken } = await res.json();
             localStorage.setItem("encodedToken", encodedToken)
-            console.log(441, localStorage.getItem("encodedToken"))
+            //console.log(441, localStorage.getItem("encodedToken"))
+            if(localStorage.getItem("encodedToken")!== "undefined"){
+                
+            }
         }
         catch(e){
         console.error(e)
