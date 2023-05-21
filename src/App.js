@@ -12,6 +12,7 @@ import MockMan from "mockman-js"
 
 import './App.css';
 import { AuthToken } from "./AuthToken";
+import Welcome from "./pages/Welcome";
 
 
 
@@ -33,6 +34,9 @@ function App() {
         <Route path="/mockman" element={<MockMan/>}/>
         <Route path="/store" element={<ProductList/>} />
         <Route path="/login" element={<LoginPage/>}/>
+
+        <Route path="/fakewelcome" element={<Welcome/>}/>
+
        </Routes>
     </div>
   );
