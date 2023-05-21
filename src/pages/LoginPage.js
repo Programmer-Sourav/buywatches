@@ -10,11 +10,13 @@ export default function LoginPage(){
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
 
-    const { token, setToken } = useContext(AuthContext)
+    const { token, setToken, isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
 
     const signInBtn = async (email, password) =>{
+        console.log("Email", email)
+        console.log("Password", password)
         try{
             const creds = {
                 email: email,
@@ -30,14 +32,11 @@ export default function LoginPage(){
             const { encodedToken } = await res.json();
             setToken(localStorage.setItem("encodedToken", encodedToken))
             console.log(441, localStorage.getItem("encodedToken"))
-           
+            setIsLoggedIn(true)
+            console.log("IsLoggedIn", isLoggedIn)
             const result = navigate(location?.state?.from?.pathname);
+            //navigate("/fakewelcome")
           
-            if(result===undefined){
-                //console.log(444, undefined)
-                //directly login from singin page and not redirected from other pages
-                navigate("/fakewelcome")
-            }
             
         }
         catch(e){
@@ -52,11 +51,11 @@ export default function LoginPage(){
             <div className="login-container-class">
             <div>
             <p> <label>Enter Your Email </label></p>
-            <input type="text" className="login-info"/>
+            <input type="text" className="login-info" onChange={(e)=>setEmail(e.target.value)}/>
             </div>
             <div>
             <p> <label>Enter Your Password </label></p>
-            <input type="password" className="login-info"/>
+            <input type="password" className="login-info"  onChange={(e)=>setPassword(e.target.value)}/>
             </div>
             <p> Forgot Password? </p>
             <button onClick={()=>{signInBtn(email, password)}} className="sign-button">Sign In</button>
