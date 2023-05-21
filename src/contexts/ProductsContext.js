@@ -1,5 +1,5 @@
 import { createContext, useEffect, useReducer, useState } from "react";
-import { initialState, productsReducer } from "../reducer/ProductsReducer";
+import { ACTION_TYPES, initialState, productsReducer } from "../reducer/ProductsReducer";
 
 export const ProductsContext = createContext();
 
@@ -20,18 +20,23 @@ export function ProductsProvider({children}){
     //console.log(products)
     setLoading(false)
     setProductsList(products)
+    dispatch(
+        {type: ACTION_TYPES.INITIALIZE,
+         cur_products: products
+        }
+    )
     }
     catch(error){
         console.error(error)
     }
    }
-
+   
 
    useEffect(()=>{getProducts()},[])
 
 
     return(
-        <ProductsContext.Provider value = {{productsList, loading, state, sortByPrice: state.sortByPrice, range: state.range, byAvailability: state.byAvailability, byRatings: state.byRatings, byGender: state.byGender, byCategory: state.byCategory, byUse: state.byUse, dispatch}}>{children}</ProductsContext.Provider>
+        <ProductsContext.Provider value = {{productsList, loading, state, productsState: state.currentProducts, sortByPrice: state.sortByPrice, range: state.range, byAvailability: state.byAvailability, byRatings: state.byRatings, byGender: state.byGender, byCategory: state.byCategory, byUse: state.byUse, dispatch}}>{children}</ProductsContext.Provider>
     )
 
 }
