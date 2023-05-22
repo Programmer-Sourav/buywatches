@@ -1,10 +1,15 @@
+import { useContext } from "react"
 import "../Stylesheets/mycart.css"
+import { CartContext } from "../contexts/CartContext"
 
-export default function WishList(){
+export default function MyCart(){
+
+    const { cart } = useContext(CartContext)
+    console.log("14566", cart.length)
     return(
         <div className="mycart-container"> 
             <h1> Shopping Cart</h1>
-            <p> 0 Item(s) is in your cart</p>
+            <p> {cart.length} Item(s) is in your cart</p>
             <div className="mycart">
             <div className="mycart-style"> 
             <img src="https://img1.gadgetsnow.com/gd/images/products/additional/large/G392624_View_2/accessories/smart-watches/apple-watch-ultra-gps-cellular-49-mm-retina-oled-display-green-alpine-loop-medium-smart-watch.jpg" alt="downloadedimage" className="image-cart-style"/>

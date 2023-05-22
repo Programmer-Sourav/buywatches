@@ -46,7 +46,7 @@ export default function ProductList(){
         <ProductFilter/>
             {
             updatedProducts().map((product)=>(
-                <ProductCard {...product}/>
+                <ProductCard data = {product}/>
 
             ))}
         </div>
