@@ -18,9 +18,10 @@ import Welcome from "./pages/Welcome";
 
 
 function App() {
+  
   return (
     <div className="App">
-       {/* <FixedHeader/> */}
+       <FixedHeader/>
        {/* <ProductFilter/> */}
        {/* <ProductCard/> */}
        {/* <ProductDescription/> */}
@@ -34,6 +35,7 @@ function App() {
         <Route path="/mockman" element={<MockMan/>}/>
         <Route path="/store" element={<ProductList/>} />
         <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/cart" element={<MyCart/>}/>
 
         <Route path="/fakewelcome" element={<Welcome/>}/>
 
