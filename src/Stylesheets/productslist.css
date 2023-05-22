@@ -1,7 +1,12 @@
 .list-layout{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 8px;
    
+}
+
+.list-right{
+  display: flex;
+  width: 100%;
+  padding: 8px;
+  flex-wrap: wrap;
+ 
 }

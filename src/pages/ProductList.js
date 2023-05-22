@@ -43,12 +43,16 @@ export default function ProductList(){
    
     return(
         <div className="list-layout"> 
+        
         <ProductFilter/>
+        
+        <div className="list-right">
             {
             updatedProducts().map((product)=>(
                 <ProductCard data = {product}/>
 
             ))}
+        </div>
         </div>
     )
 }
