@@ -1,5 +1,6 @@
 import "../Stylesheets/header.css";
 import 'font-awesome/css/font-awesome.min.css';
+import { Link } from "react-router-dom"
 
 export default function FixedHeader(){
   return(
@@ -9,7 +10,7 @@ export default function FixedHeader(){
     <input type="search" className = "search-container"/>
     <div className="icons">
     <div className = "cart">
-    <i className="fa fa-shopping-cart" title="Cart" style={{color: "white", fontSize: "20px"}}></i>
+    <Link to ="/cart"><i className="fa fa-shopping-cart" title="Cart" style={{color: "white", fontSize: "20px"}}></i></Link>
     
     </div>
     <div className = "wishlist">
