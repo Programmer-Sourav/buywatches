@@ -1,5 +1,8 @@
 
 import { useContext, useState } from "react"
+
+import { useState } from "react"
+
 import FixedHeader from "../FixedHeader/FixedHeader"
 import "../Stylesheets/login-container.css"
 import { AuthContext } from "../contexts/AuthContext"
@@ -13,6 +16,7 @@ export default function LoginPage(){
     const { token, setToken, isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
+
 
     const signInBtn = async (email, password) =>{
         console.log("Email", email)
@@ -30,6 +34,7 @@ export default function LoginPage(){
             })
 
             const { encodedToken } = await res.json();
+
             setToken(localStorage.setItem("encodedToken", encodedToken))
             console.log(441, localStorage.getItem("encodedToken"))
             setIsLoggedIn(true)
@@ -38,6 +43,13 @@ export default function LoginPage(){
             //navigate("/fakewelcome")
           
             
+
+            localStorage.setItem("encodedToken", encodedToken)
+            //console.log(441, localStorage.getItem("encodedToken"))
+            if(localStorage.getItem("encodedToken")!== "undefined"){
+                
+            }
+
         }
         catch(e){
         console.error(e)

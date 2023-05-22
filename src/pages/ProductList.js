@@ -6,12 +6,13 @@ import "../Stylesheets/productslist.css"
 
 export default function ProductList(){
 
-    const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse } = useContext(ProductsContext)
+    const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse, productsState } = useContext(ProductsContext)
     
    console.log(1211, range)
+   console.log(1444, productsState)
     const updatedProducts = () =>{
        
-        let sortedProducts = productsList
+        let sortedProducts = productsState
        // console.log("SORTED ",sortedProducts)
 
         if(range){
@@ -20,8 +21,8 @@ export default function ProductList(){
         }
         if(sortByPrice){
            
-            sortedProducts = sortedProducts.sort((p1, p2)=> sortByPrice==="lTh"? p1.price - p2.price : productsList)
-            sortedProducts = sortedProducts.sort((p1, p2)=> sortByPrice==="hTl"? p2.price - p1.price : productsList)
+            sortedProducts = sortedProducts.sort((p1, p2)=> sortByPrice==="lTh"? p1.price - p2.price : productsState)
+            sortedProducts = sortedProducts.sort((p1, p2)=> sortByPrice==="hTl"? p2.price - p1.price : productsState)
         }
         if(byRatings){
             if(byRatings<3){
@@ -31,10 +32,11 @@ export default function ProductList(){
             sortedProducts = sortedProducts.filter((product)=>product.ratings>= byRatings)
             }
         } 
-        if(byAvailability){
-          
-           // sortedProducts = sortedProducts.filter((item)=>item[byAvailability])
-           sortedProducts = sortedProducts.filter((item)=>item.availability=== byAvailability)
+        if(byAvailability.length>0){
+            console.log(444, byAvailability)
+            //sortedProducts = sortedProducts.filter((item)=>item[byAvailability])
+          sortedProducts = sortedProducts.filter((item)=>item.availability=== byAvailability)
+        
         }
         return sortedProducts 
     }
