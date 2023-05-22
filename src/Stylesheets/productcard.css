@@ -1,12 +1,10 @@
 .product-card-layout{
-    text-align: left;
-    width: fit-content;
-    height: 452px;
-    box-shadow: 2px 2px 2px gainsboro;
-    border: 1px solid gainsboro;
-    padding-left: 8px;
-    margin-left: 8px;
-    flex: 0 1 calc(20% - 8px);
+  width: 272px;
+  margin: 8px;
+  box-shadow: 2px 2px 2px gainsboro;
+  border: 1px solid gainsboro;
+  height: 452px;
+  padding: 8px;
   }
   .product-card-layout .image-style{
     width: 100%;
