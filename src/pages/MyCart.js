@@ -2,11 +2,15 @@ import { useContext } from "react"
 import "../Stylesheets/mycart.css"
 import { CartContext } from "../contexts/CartContext"
 import { ACTION_TYPES_FOR_CART } from "../reducer/CartReducer"
+import { deleteItemFromCart, getCart, incrementQuantity, decrementQuantity } from "../Utils/NetworkApis"
+import { AuthContext } from "../contexts/AuthContext"
+
 
 export default function MyCart(){
 
     const { cart, cartDispatch } = useContext(CartContext)
-    console.log("14566", cart.length)
+    const { token } = useContext(AuthContext)
+    //console.log("14566", cart.length)
     //{_id, tag, brand, category, color, discounted_price, id, img, item, price, title}
 
     const totalPrice = cart.reduce((acc, cur)=>acc+ cur.price*cur.quantity,0)
@@ -15,12 +19,11 @@ export default function MyCart(){
     
     const total_discount = totalPrice-total_discounted_price;
     
-   
-
 
     return(
         <div className="mycart-container"> 
             <h1> Shopping Cart</h1>
+            
             <p> {cart.length} Item(s) is in your cart</p>
             <div className="mycart">
             {  cart.map((cartItem)=>(
@@ -28,11 +31,11 @@ export default function MyCart(){
             <img src={cartItem.img} alt="downloadedimage" className="image-cart-style"/>
             <p className="item-name-cart"> <strong> {cartItem.item} </strong></p>
             <span className="item-current-price-my-cart"><strong>{cartItem.discounted_price}</strong></span>
-            <button onClick={()=>{cartDispatch({type: ACTION_TYPES_FOR_CART.DECREMENT_QTY, payload: cartItem.id})}} style={{margin: "16px"}} className="button-small">-</button>
+            <button onClick={()=>{decrementQuantity(cartItem.id, token), cartDispatch({type: ACTION_TYPES_FOR_CART.DECREMENT_QTY, payload: cartItem.id})}} style={{margin: "16px"}} className="button-small" disabled = {cartItem.quantity>0? false : true}>-</button>
             <span><strong>{cartItem.quantity}</strong></span>
-            <button onClick={()=>{cartDispatch({type: ACTION_TYPES_FOR_CART.INCREMENT_QTY, payload: cartItem.id })}} style={{margin: "16px"}} className="button-small">+</button>
+            <button onClick={()=>{incrementQuantity(cartItem.id,  token), cartDispatch({type: ACTION_TYPES_FOR_CART.INCREMENT_QTY, payload: cartItem.id})}} style={{margin: "16px"}} className="button-small">+</button>
             <div>
-            <button onClick={()=>{cartDispatch({type: ACTION_TYPES_FOR_CART.REMOVE_FROM_CART, payload: cartItem })}} className="button-bg-two">Remove from Cart</button>
+            <button onClick={()=>{deleteItemFromCart(cartItem, token), cartDispatch({type: ACTION_TYPES_FOR_CART.REMOVE_FROM_CART, payload: cartItem })}} className="button-bg-two">Remove from Cart</button>
             <button onClick={{}} className="button-bg-three">Move to Wishlist</button>
             </div>
             </div>
