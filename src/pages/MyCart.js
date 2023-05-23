@@ -9,13 +9,13 @@ export default function MyCart(){
     console.log("14566", cart.length)
     //{_id, tag, brand, category, color, discounted_price, id, img, item, price, title}
 
-    const totalPrice = cart.reduce((acc, cur)=>acc+ cur.price,0)
-    console.log(1256, totalPrice)
-    const total_discounted_price = cart.reduce((acc, cur)=>acc+cur.discounted_price,0)
-    console.log(1257, total_discounted_price )
+    const totalPrice = cart.reduce((acc, cur)=>acc+ cur.price*cur.quantity,0)
+  
+    const total_discounted_price = cart.reduce((acc, cur)=>acc+cur.discounted_price*cur.quantity,0)
+    
     const total_discount = totalPrice-total_discounted_price;
-    console.log(1258, total_discount)
-    let initialQty = 1
+    
+   
 
 
     return(
@@ -29,7 +29,7 @@ export default function MyCart(){
             <p className="item-name-cart"> <strong> {cartItem.item} </strong></p>
             <span className="item-current-price-my-cart"><strong>{cartItem.discounted_price}</strong></span>
             <button onClick={()=>{cartDispatch({type: ACTION_TYPES_FOR_CART.DECREMENT_QTY, payload: cartItem.id})}} style={{margin: "16px"}} className="button-small">-</button>
-            <span><strong>{initialQty}</strong></span>
+            <span><strong>{cartItem.quantity}</strong></span>
             <button onClick={()=>{cartDispatch({type: ACTION_TYPES_FOR_CART.INCREMENT_QTY, payload: cartItem.id })}} style={{margin: "16px"}} className="button-small">+</button>
             <div>
             <button onClick={()=>{cartDispatch({type: ACTION_TYPES_FOR_CART.REMOVE_FROM_CART, payload: cartItem })}} className="button-bg-two">Remove from Cart</button>
