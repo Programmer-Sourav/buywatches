@@ -1,7 +1,8 @@
-
+import toast, { Toaster } from "react-hot-toast";
 
 
 export const AuthToken =() =>{
+   
 
     const getData = async() =>{
 
@@ -29,11 +30,16 @@ export const AuthToken =() =>{
         console.error(e)
         }
 
-    } 
+
+       
+
+    }
+    const getFire = () => toast.success("Successfully Logged In!");
 
 return(
     <div>
     <button onClick={getData}>Hello!!!!</button>
+    <button onClick={getFire}>Fire here</button>
     </div>
 )
 }

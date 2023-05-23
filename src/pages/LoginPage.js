@@ -55,7 +55,6 @@ export default function LoginPage(){
      }
     return(
         <div>
-            <FixedHeader/>
             <div className="parent-container">
             <div className="login-container-class">
             <div>

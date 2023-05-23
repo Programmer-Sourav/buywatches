@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { ACTION_TYPES_FOR_CART } from "../reducer/CartReducer"
+import toast, { Toaster } from "react-hot-toast";
 
 
 
@@ -41,6 +42,7 @@ export const addToCart = async (cartItem, token, cartDispatch) =>{
         const { cart } = await res.json();
        // console.log("4455cart", cart)
         cartDispatch({type: "ADD_TO_CART", payload: cartItem })
+        toast.success("Item successfully added to the cart")  
         
     }
     catch(e){
@@ -63,11 +65,13 @@ export const deleteItemFromCart = async (cartItem,token) =>{
         
 
         const { cart } = await res.json();
+        toast.success("Item successfully removed from cart")  
         //console.log("4456dcart", cart)
         // cartDispatch({type: ACTION_TYPES_FOR_CART.REMOVE_FROM_CART, payload: cartItem })
         
     }
     catch(e){
+    toast.error("Oops! Some Error Occured"+ e)  
     console.error(e)
     }
 
@@ -103,9 +107,10 @@ export const incrementQuantity =async ( productId,  token) =>{
     }
 
 }
-export const decrementQuantity =async (productId, token,  cartDispatch) =>{
-    console.log(productId)
-    console.log(token)
+export const decrementQuantity =async (productId, token) =>{
+    // console.log(productId)
+    // console.log(token)
+   
     try{
 
         const value = {action: {
@@ -125,10 +130,17 @@ export const decrementQuantity =async (productId, token,  cartDispatch) =>{
         
         const { cart } = await res.json();
         
-        console.log("4455cart", cart)
+        
+      
+        toast("Item Quantity reduced", {
+            style: { border: "1px solid orange", color: "orange", padding: "8px" }
+          });
+        
+
         
     }
     catch(e){
+    toast.error("Oops! Some Error Occured"+ e)    
     console.error(e)
     }
 }

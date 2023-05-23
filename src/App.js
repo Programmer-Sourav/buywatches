@@ -9,6 +9,8 @@ import { Routes, Route } from "react-router-dom"
 import ProductList from "./pages/ProductList";
 import MockMan from "mockman-js"
 
+import { Toaster } from "react-hot-toast";
+
 
 import './App.css';
 import { AuthToken } from "./AuthToken";
@@ -16,11 +18,11 @@ import Welcome from "./pages/Welcome";
 
 
 
-
 function App() {
   
   return (
     <div className="App">
+       {<Toaster position="top-right" reverseOrder={true} />}
        <FixedHeader/>
        {/* <ProductFilter/> */}
        {/* <ProductCard/> */}

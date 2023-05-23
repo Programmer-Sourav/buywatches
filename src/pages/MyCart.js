@@ -6,6 +6,7 @@ import { deleteItemFromCart, getCart, incrementQuantity, decrementQuantity } fro
 import { AuthContext } from "../contexts/AuthContext"
 
 
+
 export default function MyCart(){
 
     const { cart, cartDispatch } = useContext(CartContext)
