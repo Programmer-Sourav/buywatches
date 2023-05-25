@@ -5,7 +5,13 @@
   border: 1px solid gainsboro;
   height: 452px;
   padding: 8px;
+  cursor: pointer;
   }
+ .product-parent{
+  width: 272px;
+  height: 90%;
+  text-align: left;
+ }
   .product-card-layout .image-style{
     width: 100%;
     height: 50%;
@@ -25,7 +31,7 @@
   .product-card-layout .item-name{
    color: #464655;
    font-size: 16px;
-   height: 40px;
+   height: 32px;
   }
   .product-card-layout .item-price{
     color: #464655;
@@ -41,7 +47,7 @@
     margin-left: 4px;
     color: green;
   }
-  .product-card-layout .button-bg-two{
+   .button-bg-two{
    height: 32px;
    background: #d64045;
    color: white;
@@ -50,5 +56,17 @@
    margin-top: 8px;
    margin-bottom: 8px;
    border-radius: 4px;
+   cursor: pointer;
   
+  }
+  #clickableIcon{
+    color: var(--lightGrey);
+    position: absolute;
+   
+    padding: 1rem 0.5rem;
+    font-weight: var(--font-semiBold);
+    font-size: 1rem;
+    right: 2%;
+    top: 1%;
+
   }

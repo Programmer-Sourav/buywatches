@@ -33,10 +33,20 @@ export default function ProductList(){
             }
         } 
         if(byAvailability.length>0){
-            console.log(444, byAvailability)
-            //sortedProducts = sortedProducts.filter((item)=>item[byAvailability])
-          sortedProducts = sortedProducts.filter((item)=>item.availability=== byAvailability)
-        
+        sortedProducts = sortedProducts.filter((item)=>{
+            return byAvailability.includes(item.availability)
+        })
+        }
+
+        if(byCategory.length>0){
+        sortedProducts = sortedProducts.filter((item)=> byCategory.includes(item.Category))
+        }
+        if(byGender.length>0){
+            console.log(6666, byGender)
+        sortedProducts = sortedProducts.filter((item)=> byGender.includes(item.gender))
+        }
+        if(byUse.length>0){
+        sortedProducts = sortedProducts.filter((item)=> byUse.includes(item.use))
         }
         return sortedProducts 
     }
