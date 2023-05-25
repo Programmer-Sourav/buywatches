@@ -14,11 +14,11 @@ export default function FixedHeader(){
     
     </div>
     <div className = "wishlist">
-    <i className="fa fa-heart" style={{color: "white", fontSize: "20px"}}></i>
+    <Link to ="/wishlist"><i className="fa fa-heart" style={{color: "white", fontSize: "20px"}}></i></Link>
    
     </div>
     <div className = "profile">
-    <i className="fa fa-user" style={{color: "white", fontSize: "20px"}}></i>
+    <Link to ="/profile"><i className="fa fa-user" style={{color: "white", fontSize: "20px"}}></i></Link>
     </div>
     </div>
     </div>

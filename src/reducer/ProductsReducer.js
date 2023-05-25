@@ -2,11 +2,11 @@ export const initialState = {
 
     sortByPrice: "",
     range: "",
-    byAvailability:{},
+    byAvailability:[],
     byRatings:"",
-    byGender: "",
-    byCategory: {},
-    byUse: {},
+    byGender: [],
+    byCategory: [],
+    byUse: [],
     currentProducts: []
 }
 
@@ -16,29 +16,19 @@ export const ACTION_TYPES = {
     LOW_TO_HIGH: "LOW_TO_HIGH",
     HIGH_TO_LOW: "HIGH_TO_LOW",
     RANGE :"RANGE",
-    CASH_ON_DELIVERY : "CASH_ON_DELIVERY",
-    ONE_DAY_DELIVERY: "ONE_DAY_DELIVERY",
+    BY_AVAILABILITY: "BY_AVAILABILITY",
     FIVE_STARS : "FIVE_STARS",
     ABOVE_FOUR_STAR: "ABOVE_FOUR_STAR",
     ABOVE_THREE_STAR: "ABOVE_THREE_STAR",
     BELOW_THREE_STAR: "BELOW_THREE_STAR",
-    MALE : "MALE",
-    FEMALE: "FEMALE",
-    SMARTWATCHES: "Smartwatches",
-    CHRONOLOGICAL: "Chronological",
-    WORKWEAR: "WORK_WEAR",
-    STYLISH: "STYLISH",
-    FITNESS: "FITNESS", 
-    CLEAR: "Clear"
+    BY_CATEGORY: "BY_CATEGORY",
+    BY_GENDER: "BY_GENDER",
+    BY_USE: "BY_USE"
 
 }
 
 export const productsReducer = (state, action) =>{
-    console.log(123,action.type)
-    console.log(121,action.payload)
-    console.log(4444, action.cur_products)
-    
-
+  
     switch(action.type){
         case ACTION_TYPES.INITIALIZE:
         // console.log(4545, {...state, currentProducts: action.cur_products}) 
@@ -54,16 +44,27 @@ export const productsReducer = (state, action) =>{
         case ACTION_TYPES.RANGE: 
         return {...state, range: action.payload}
 
-        case ACTION_TYPES.CASH_ON_DELIVERY:
-            console.log(144, state)
-            // console.log(146, [...state.byAvailability, action.payload])
-            //console.log(166, {...state, byAvailability: [...state.byAvailability, action.payload]})
-          //return {...state, byAvailability: [...state.byAvailability, action.payload]}
-          return {...state, byAvailability: action.payload}
-
-        case ACTION_TYPES.ONE_DAY_DELIVERY: 
-       // console.log(141,{...state, byAvailability: action.payload})
-        return {...state, byAvailability: action.payload}
+        case ACTION_TYPES.BY_AVAILABILITY:
+           // console.log(144, state.byAvailability.includes(action.payload))
+          if(state.byAvailability.includes(action.payload)){
+            return {...state, byAvailability: state.byAvailability.filter((item)=>item!=action.payload)}
+          }
+          return {...state, byAvailability: [...state.byAvailability, action.payload]}
+        case ACTION_TYPES.BY_CATEGORY: 
+        if(state.byCategory.includes(action.payload)){
+            return {...state, byCategory: state.byCategory.filter((item)=> item!=action.payload)}
+        }
+        return {...state, byCategory: [...state.byCategory, action.payload]}
+        case ACTION_TYPES.BY_GENDER: 
+        if(state.byGender.includes(action.payload)){
+            return {...state, byGender: state.byGender.filter((item)=> item!=action.payload)}
+        }
+        return {...state, byGender: [...state.byGender, action.payload]}
+        case ACTION_TYPES.BY_USE: 
+        if(state.byUse.includes(action.payload)){
+            return {...state, byUse: state.byUse.filter((item)=> item!=action.payload)}
+        }
+        return {...state, byUse: [...state.byUse, action.payload]}
         case ACTION_TYPES.FIVE_STARS: 
             return {...state, byRatings: action.payload}
         case ACTION_TYPES.ABOVE_FOUR_STAR: 
@@ -72,20 +73,7 @@ export const productsReducer = (state, action) =>{
             return {...state, byRatings: action.payload}
         case ACTION_TYPES.BELOW_THREE_STAR:
             return {...state, byRatings: action.payload}
-        case ACTION_TYPES.MALE: 
-            return {...state, byGender: action.payload}
-        case ACTION_TYPES.FEMALE: 
-            return {...state, byGender: action.payload}
-        case ACTION_TYPES.SMARTWATCHES: 
-            return {...state, byCategory: {...state.byCategory, ...action.payload}}
-        case ACTION_TYPES.CHRONOLOGICAL:
-            return {...state, byCategory: {...state.byCategory, ...action.payload}}
-        case ACTION_TYPES.WORKWEAR: 
-             return {...state, byUse: {...state.byUse, ...action.payload}}
-        case ACTION_TYPES.STYLISH: 
-             return {...state, byUse: {...state.byUse, ...action.payload}}
-        case ACTION_TYPES.FITNESS: 
-             return {...state, byUse: {...state.byUse, ...action.payload}}
+       
         case ACTION_TYPES.CLEAR:
            
              return {
@@ -95,8 +83,8 @@ export const productsReducer = (state, action) =>{
                 byAvailability: "",
                 byRatings:"",
                 byGender: "",
-                byCategory: {},
-                byUse: {},
+                byCategory: "",
+                byUse: "",
              } 
         default: 
         return state        

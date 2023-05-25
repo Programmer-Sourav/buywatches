@@ -13,12 +13,14 @@ export const products = [
     price: 90000,
     discounted_price: 80000,
     brand: "apple",
-    category: "luxury",
+    Category: "luxury",
     img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQDY3ref_VW_34FR+watch-49-titanium-ultra_VW_34FR_WF_CO+watch-face-49-alpine-ultra_VW_34FR_WF_CO_GEO_IN?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1683224241054",
     color: "Blue",
     tag:"Trending", 
     availability: "cash-on-delivery",
-    ratings: 5
+    gender: "Male",
+    ratings: 5, 
+    use: "stylish"
   },
   {
     _id: uuid(),
@@ -32,7 +34,9 @@ export const products = [
     color: "Blue",
     tag:"Selling fast",
     availability: "cash-on-delivery",
-    ratings: 4.8
+    gender: "Male",
+    ratings: 4.8,
+    use: "workwear"
   },
   {
     _id: uuid(),
@@ -46,7 +50,9 @@ export const products = [
     color: "green",
     tag:"New",
     availability: "cash-on-delivery",
-    ratings: 4.7
+    gender: "Male",
+    ratings: 4.7,
+    use: "fitness"
   },
    {
     _id: uuid(),
@@ -60,7 +66,9 @@ export const products = [
     color: "black",
     tag:"Trending",
     availability: "cash-on-delivery",
-    ratings: 5
+    gender: "Male",
+    ratings: 5,
+    use: "fitness"
   },
    {
     _id: uuid(),
@@ -74,7 +82,9 @@ export const products = [
     color: "black",
     tag:"Trending",
     availability: "one-day-delivery",
-    ratings: 4.5
+    gender: "Female",
+    ratings: 4.5,
+    use: "stylish"
   },
   {
     _id: uuid(),
@@ -88,7 +98,9 @@ export const products = [
     color: "pink",
     tag:"Trending",
     availability: "one-day-delivery",
-    ratings: 4
+    gender: "Male",
+    ratings: 4,
+    use: "casual"
   },
     {
     _id: uuid(),
@@ -102,7 +114,9 @@ export const products = [
     color: "Blue",
     tag:"New",
     availability: "one-day-delivery",
-    ratings: 4.6
+    gender: "Female",
+    ratings: 4.6,
+    use: "stylish"
   },
     {
     _id: uuid(),
@@ -116,7 +130,9 @@ export const products = [
     color: "Golden",
     tag:"Selling fast",
     availability: "one-day-delivery",
-    ratings: 5
+    gender: "Male",
+    ratings: 5,
+    use: "stylish"
   },
   {
     _id: uuid(),
@@ -129,8 +145,10 @@ export const products = [
     img: "https://sslimages.shoppersstop.com/sys-master/images/h0c/hd5/27614754734110/WFT38073AP03_NoColour.jpg_2000Wx3000H",
     color: "pink",
     tag:"New",
+    gender: "Female",
     availability: "one-day-delivery",
-    ratings: 4
+    ratings: 4,
+    use: "fitness"
   },
   {
     _id: uuid(),
@@ -144,6 +162,7 @@ export const products = [
     color: "pink",
     tag:"Selling fast",
     availability: "one-day-delivery",
+    gender: "Male",
     ratings: 3.5
   },
    {
@@ -158,6 +177,7 @@ export const products = [
     color: "brown",
     tag:"Huge Discount",
     availability: "one-day-delivery",
+    gender: "Male",
     ratings: 3.5
   },
    {
@@ -172,6 +192,7 @@ export const products = [
     color: "pink",
     tag:"Huge Discount",
     availability: "cash-on-delivery",
+    gender: "Female",
     ratings: 3
   },
   {
@@ -185,6 +206,7 @@ export const products = [
     img: "https://m.media-amazon.com/images/I/71nGcwHyaSL._UY679_.jpg",
     color: "pink",
     availability: "one-day-delivery",
+    gender: "Female",
     ratings: 3
   },
    {
@@ -198,6 +220,7 @@ export const products = [
     img: "https://m.media-amazon.com/images/I/51B8fewjzIL._UX522_.jpg",
     color: "pink",
     availability: "cash-on-delivery",
+    gender: "Female",
     ratings: 2.5
   },
 
@@ -212,6 +235,7 @@ export const products = [
     img: "https://staticimg.titan.co.in/Titan/Catalog/90142QM01_1.jpg?impolicy=pqmed&imwidth=640",
     color: "blue",
     availability: "cash-on-delivery",
+    gender: "Male",
     ratings: 2.5
   },
    {
@@ -224,6 +248,7 @@ export const products = [
     Category:"Smartwatch",
     img: "https://m.media-amazon.com/images/I/51B8fewjzIL._UX522_.jpg",
     color: "black",
+    gender: "Male",
     ratings: 2.7
   },
 
@@ -237,6 +262,7 @@ export const products = [
     Category:"Smartwatch",
     img: "https://m.media-amazon.com/images/I/71LfnkRgZ4L._SX679_.jpg",
     color: "black",
+    gender: "Male",
     ratings: 3.5
   },
 
@@ -250,6 +276,7 @@ export const products = [
     Category:"Smartwatch",
     img: "https://images.samsung.com/is/image/samsung/p6pim/in/2108/gallery/in-galaxy-watch4-398887-sm-r875fzkainu-481111543?$1300_1038_PNG$",
     color: "black",
+    gender: "Female",
     ratings: 4
   },
 ];
