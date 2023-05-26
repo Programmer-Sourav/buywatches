@@ -7,7 +7,8 @@ export const initialState = {
     byGender: [],
     byCategory: [],
     byUse: [],
-    currentProducts: []
+    currentProducts: [], 
+    search: []
 }
 
 export const ACTION_TYPES = {
@@ -23,7 +24,8 @@ export const ACTION_TYPES = {
     BELOW_THREE_STAR: "BELOW_THREE_STAR",
     BY_CATEGORY: "BY_CATEGORY",
     BY_GENDER: "BY_GENDER",
-    BY_USE: "BY_USE"
+    BY_USE: "BY_USE", 
+    SEARCH: "SEARCH"
 
 }
 
@@ -73,6 +75,8 @@ export const productsReducer = (state, action) =>{
             return {...state, byRatings: action.payload}
         case ACTION_TYPES.BELOW_THREE_STAR:
             return {...state, byRatings: action.payload}
+        case ACTION_TYPES.SEARCH: 
+            return {...state, search: [...state.search, action.payload]}    
        
         case ACTION_TYPES.CLEAR:
            
