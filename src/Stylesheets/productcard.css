@@ -7,10 +7,17 @@
   padding: 8px;
   cursor: pointer;
   }
+  .clickableIcon{
+    color: gainsboro;
+    position:relative;
+    top:0;
+    right: 100;
+    
+  }
  .product-parent{
   width: 272px;
   height: 90%;
-  text-align: left;
+  margin-top: 30px;
  }
   .product-card-layout .image-style{
     width: 100%;
@@ -59,14 +66,4 @@
    cursor: pointer;
   
   }
-  #clickableIcon{
-    color: var(--lightGrey);
-    position: absolute;
-   
-    padding: 1rem 0.5rem;
-    font-weight: var(--font-semiBold);
-    font-size: 1rem;
-    right: 2%;
-    top: 1%;
-
-  }
+ 
