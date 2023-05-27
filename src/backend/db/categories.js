@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    Category: "Luxury",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Costly product... Loren ipsum...",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    Category:"Casual",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "You can wear it daily.. Loren ipsum.... Loren ipsum...",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    Category: "Smartwatch",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "For modern time and daily needs... ",
   },
 ];

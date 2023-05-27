@@ -8,15 +8,11 @@ export default function ProductList(){
 
     const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse, productsState, search } = useContext(ProductsContext)
     
-   console.log(1211, range)
-   console.log(1444, productsState)
     const updatedProducts = () =>{
        
         let sortedProducts = productsState
-       // console.log("SORTED ",sortedProducts)
 
         if(range){
-            console.log(555, range)
             sortedProducts = sortedProducts.filter((item)=>item.price<=range)
         }
         if(sortByPrice){
@@ -47,6 +43,10 @@ export default function ProductList(){
         }
         if(byUse.length>0){
         sortedProducts = sortedProducts.filter((item)=> byUse.includes(item.use))
+        }
+        
+        if(search.length>0){
+        sortedProducts = search ? sortedProducts.filter((product)=> product.item.toUpperCase().includes(search.toUpperCase())) : productsState  
         }
         return sortedProducts 
     }

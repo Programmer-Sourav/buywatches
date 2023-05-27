@@ -197,5 +197,7 @@ export const removeFromWishList = async (wishlistItem,token, wishListDispatcher)
     toast.error("Oops! Some Error Occured"+ e)  
     console.error(e)
     }
+    
 
 }
+

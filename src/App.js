@@ -12,7 +12,7 @@ import { Toaster } from "react-hot-toast";
 
 
 import './App.css';
-import { AuthToken } from "./AuthToken";
+import { AuthToken } from "./Home";
 import Welcome from "./pages/Welcome";
 import ProductDescription from "./Components/ProductDescription";
 import Wishlist from "./pages/Wishlist";

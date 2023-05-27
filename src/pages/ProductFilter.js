@@ -28,11 +28,11 @@ export default function ProductFilter(){
     <p><strong> Availability </strong> </p>
     <li className="list-item-style">
     <label id="cb1"> 
-    <input id="cb1" type="checkbox" value="cash-on-delivery" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_AVAILABILITY, payload: e.target.value})}} name="availibility"/> 
+    <input id="cb1" type="checkbox" value="cash-on-delivery" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_AVAILABILITY, payload:{ value: e.target.value, checkedFlag: e.target.checked}})}} name="availibility"/> 
     Cash on Delivery </label> </li>
     <li className="list-item-style">
     <label>
-    <input type="checkbox" value="one-day-delivery" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_AVAILABILITY, payload: e.target.value})}} name="availibility" /> 
+    <input type="checkbox" value="one-day-delivery" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_AVAILABILITY, payload:{ value: e.target.value, checkedFlag: e.target.checked }})}} name="availibility" /> 
     One Day delivery </label>
     </li>
     <p> <strong> Reviews and Ratings </strong> </p>
@@ -41,15 +41,16 @@ export default function ProductFilter(){
     <li className="list-item-style"><label> <input type="radio" value="3" onChange={(e)=>{dispatch({type: ACTION_TYPES.ABOVE_THREE_STAR, payload: e.target.value})}} name="reviews" checked={byRatings==="3"}/> Above 3 Stars</label></li>
     <li className="list-item-style"><label> <input type="radio" value="2.9" onChange={(e)=>{dispatch({type: ACTION_TYPES.BELOW_THREE_STAR, payload: e.target.value})}} name="reviews" checked={byRatings==="2.9"}/> Below 3 Stars</label></li>
     <p> <strong>By Gender </strong></p>
-    <li className="list-item-style"> <label><input type="checkbox" value="Male" /*checked={byGender.includes("Male")}*/ onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_GENDER, payload: e.target.value})}} name="gender"/> Male </label></li>
-    <li className="list-item-style"> <label><input type="checkbox" value="Female"  onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_GENDER, payload: e.target.value})}} name="gender"/> Female </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Male" checked={byGender.includes("Male")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_GENDER, payload: {value: e.target.value, checkedFlag: e.target.checked}})}} name="gender"/> Male </label></li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Female"  checked= {byGender.includes("Female")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_GENDER, payload: {value: e.target.value, checkedFlag: e.target.checked }})}} name="gender"/> Female </label> </li>
     <p> <strong>By Category</strong></p>
-    <li className="list-item-style"> <label><input type="checkbox" value="Smartwatch" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_CATEGORY, payload: e.target.value})}} name="category"/> Smartwatches </label></li>
-    <li className="list-item-style"> <label><input type="checkbox" value="Chronological"  onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_CATEGORY, payload: e.target.value})}} name="category"/> Chronological </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Smartwatch" checked={byCategory.includes("Smartwatch")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_CATEGORY, payload:{value: e.target.value, checkedFlag: e.target.checked}})}} name="category"/> Smartwatches </label></li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Luxury"  checked={byCategory.includes("Luxury")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_CATEGORY, payload: { value: e.target.value, checkedFlag: e.target.checked}})}} name="category"/> Luxury </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="Casual"  checked={byCategory.includes("Casual")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_CATEGORY, payload: { value: e.target.value, checkedFlag: e.target.checked}})}} name="category"/> Casual </label> </li>
     <p> <strong>By Use</strong></p>
-    <li className="list-item-style"> <label><input type="checkbox" value="workwear" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_USE, payload: e.target.value})}} name="by-use"/> Work wear </label></li>
-    <li className="list-item-style"> <label><input type="checkbox" value="stylish"  onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_USE, payload: e.target.value})}} name="by-use"/> Stylish </label> </li>
-    <li className="list-item-style"> <label><input type="checkbox" value="fitness" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_USE, payload: e.target.value})}} name="by-use"/> Fitness </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="workwear" checked={byUse.includes("workwear")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_USE, payload: {value: e.target.value, checkedFlag: e.target.checked}})}} name="by-use"/> Work wear </label></li>
+    <li className="list-item-style"> <label><input type="checkbox" value="stylish"  checked={byUse.includes("stylish")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_USE, payload:  {value: e.target.value, checkedFlag: e.target.checked}})}} name="by-use"/> Stylish </label> </li>
+    <li className="list-item-style"> <label><input type="checkbox" value="fitness"  checked={byUse.includes("fitness")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_USE, payload: {value: e.target.value, checkedFlag: e.target.checked}})}} name="by-use"/> Fitness </label> </li>
     </div>
   )
 }

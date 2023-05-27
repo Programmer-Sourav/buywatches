@@ -33,7 +33,6 @@ export default function ProductCard({data}){
     }
 
     const goToCart = () =>{
-      //window.location.href = "/cart"
       navigate("/cart")
     }
 
@@ -43,7 +42,6 @@ export default function ProductCard({data}){
     return(
     
      <div className="product-card-layout" >
-     { console.log(8888, wishListState)}
       {
         checkIfTheItemIsInWishlist(_id) ?
       <span className='clickableIcon' onClick={()=>{removeFromWishList(_id, token, wishListDispatcher)}}><i class="fa fa-heart" style={{color: "red"}}></i></span> :
@@ -52,7 +50,6 @@ export default function ProductCard({data}){
      <div className="product-parent" onClick={()=>{navigate(`/description/${pid}`)}}>
       <img src={img} alt="productimg" className="image-style" />
       
-      <p className="tag"> {tag}</p>
       <p className="item-tags"> {title} </p>
       <p className="item-name" > <strong> {item} </strong></p>
       <span className="item-price"> ₹{price}</span>

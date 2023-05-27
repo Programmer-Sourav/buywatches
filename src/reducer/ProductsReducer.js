@@ -8,7 +8,7 @@ export const initialState = {
     byCategory: [],
     byUse: [],
     currentProducts: [], 
-    search: []
+    search: ""
 }
 
 export const ACTION_TYPES = {
@@ -33,11 +33,10 @@ export const productsReducer = (state, action) =>{
   
     switch(action.type){
         case ACTION_TYPES.INITIALIZE:
-        // console.log(4545, {...state, currentProducts: action.cur_products}) 
+      
         return {...state, currentProducts: action.cur_products}    
         case ACTION_TYPES.LOW_TO_HIGH: 
-        console.log(state)
-        console.log({...state, sortByPrice: action.payload})
+       
         return {...state, sortByPrice: action.payload}
 
         case ACTION_TYPES.HIGH_TO_LOW: 
@@ -47,26 +46,37 @@ export const productsReducer = (state, action) =>{
         return {...state, range: action.payload}
 
         case ACTION_TYPES.BY_AVAILABILITY:
-           // console.log(144, state.byAvailability.includes(action.payload))
-          if(state.byAvailability.includes(action.payload)){
-            return {...state, byAvailability: state.byAvailability.filter((item)=>item!=action.payload)}
+         
+          if(action.payload.checkedFlag){
+          return {...state, byAvailability: [...state.byAvailability, action.payload.value]}
           }
-          return {...state, byAvailability: [...state.byAvailability, action.payload]}
+          else{
+            return {...state, byAvailability: state.byAvailability.filter((item)=>item!=action.payload.value)}
+          }
+
         case ACTION_TYPES.BY_CATEGORY: 
-        if(state.byCategory.includes(action.payload)){
-            return {...state, byCategory: state.byCategory.filter((item)=> item!=action.payload)}
+        if(action.payload.checkedFlag){
+            return {...state, byCategory: [...state.byCategory, action.payload.value]}
         }
-        return {...state, byCategory: [...state.byCategory, action.payload]}
+        else{
+        return {...state, byCategory: state.byCategory.filter((item)=> item!=action.payload.value)}
+        }
         case ACTION_TYPES.BY_GENDER: 
-        if(state.byGender.includes(action.payload)){
-            return {...state, byGender: state.byGender.filter((item)=> item!=action.payload)}
+        if(action.payload.checkedFlag){
+            return {...state, byGender: [...state.byGender, action.payload.value]}
         }
-        return {...state, byGender: [...state.byGender, action.payload]}
+        else{
+            return {...state, byGender: state.byGender.filter((item)=> item!=action.payload.value)}
+        }
+        
         case ACTION_TYPES.BY_USE: 
-        if(state.byUse.includes(action.payload)){
-            return {...state, byUse: state.byUse.filter((item)=> item!=action.payload)}
+        if(action.payload.checkedFlag){
+            return {...state, byUse: [...state.byUse, action.payload.value]}
         }
-        return {...state, byUse: [...state.byUse, action.payload]}
+        else{
+            return {...state, byUse: state.byUse.filter((item)=> item!=action.payload.value)}
+        }
+        
         case ACTION_TYPES.FIVE_STARS: 
             return {...state, byRatings: action.payload}
         case ACTION_TYPES.ABOVE_FOUR_STAR: 
@@ -76,7 +86,9 @@ export const productsReducer = (state, action) =>{
         case ACTION_TYPES.BELOW_THREE_STAR:
             return {...state, byRatings: action.payload}
         case ACTION_TYPES.SEARCH: 
-            return {...state, search: [...state.search, action.payload]}    
+            return {...state, search: action.payload}   
+        
+                 
        
         case ACTION_TYPES.CLEAR:
            

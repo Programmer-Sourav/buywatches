@@ -1,4 +1,9 @@
 import toast, { Toaster } from "react-hot-toast";
+import { useContext, useEffect, useState } from "react";
+import Categories from "./Components/Categories";
+
+
+
 
 
 export const AuthToken =() =>{
@@ -28,18 +33,21 @@ export const AuthToken =() =>{
         }
         catch(e){
         console.error(e)
-        }
-
-
-       
+        } 
 
     }
     const getFire = () => toast.success("Successfully Logged In!");
+   
+
+  
+  
+    
 
 return(
     <div>
     <button onClick={getData}>Hello!!!!</button>
     <button onClick={getFire}>Fire here</button>
+    <Categories/>
     </div>
 )
 }
