@@ -28,11 +28,11 @@ export default function ProductFilter(){
     <p><strong> Availability </strong> </p>
     <li className="list-item-style">
     <label id="cb1"> 
-    <input id="cb1" type="checkbox" value="cash-on-delivery" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_AVAILABILITY, payload:{ value: e.target.value, checkedFlag: e.target.checked}})}} name="availibility"/> 
+    <input id="cb1" type="checkbox" value="cash-on-delivery" checked={byAvailability.includes("cash-on-delivery")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_AVAILABILITY, payload:{ value: e.target.value, checkedFlag: e.target.checked}})}} name="availibility"/> 
     Cash on Delivery </label> </li>
     <li className="list-item-style">
     <label>
-    <input type="checkbox" value="one-day-delivery" onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_AVAILABILITY, payload:{ value: e.target.value, checkedFlag: e.target.checked }})}} name="availibility" /> 
+    <input type="checkbox" value="one-day-delivery" checked={byAvailability.includes("one-day-delivery")} onChange={(e)=>{dispatch({type: ACTION_TYPES.BY_AVAILABILITY, payload:{ value: e.target.value, checkedFlag: e.target.checked }})}} name="availibility" /> 
     One Day delivery </label>
     </li>
     <p> <strong> Reviews and Ratings </strong> </p>

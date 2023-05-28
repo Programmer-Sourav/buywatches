@@ -8,7 +8,9 @@ export const initialState = {
     byCategory: [],
     byUse: [],
     currentProducts: [], 
-    search: ""
+    search: "", 
+    priceDetails: "", 
+    address: []
 }
 
 export const ACTION_TYPES = {
@@ -25,7 +27,11 @@ export const ACTION_TYPES = {
     BY_CATEGORY: "BY_CATEGORY",
     BY_GENDER: "BY_GENDER",
     BY_USE: "BY_USE", 
-    SEARCH: "SEARCH"
+    SEARCH: "SEARCH",
+    CLEAR: "CLEAR",
+    PRICE_DETAILS : "PRICE_DETAILS", 
+    ADD_ADDRESS: "ADD_ADDRESS",
+    DELETE_ADDRESS: "DELETE_ADDRESS"
 
 }
 
@@ -88,19 +94,28 @@ export const productsReducer = (state, action) =>{
         case ACTION_TYPES.SEARCH: 
             return {...state, search: action.payload}   
         
-                 
+        case ACTION_TYPES.PRICE_DETAILS:
+            return {...state, priceDetails: action.payload}  
+            
+        case ACTION_TYPES.ADD_ADDRESS: 
+        return { ...state, address: [...state.address, action.payload]}    
+
+        case ACTION_TYPES.DELETE_ADDRESS: 
+        console.log(2245, state.address)
+        console.log(2324, action.payload)
+        return {...state, address: state.address.filter((item)=>item.id!=action.payload)}
        
         case ACTION_TYPES.CLEAR:
            
-             return {
+             return {...state,
                 sortByPrice: "",
                 range: "",
                 rangeVal:1000,
-                byAvailability: "",
-                byRatings:"",
-                byGender: "",
-                byCategory: "",
-                byUse: "",
+                byAvailability: [],
+                byRatings:[],
+                byGender: [],
+                byCategory: [],
+                byUse: [],
              } 
         default: 
         return state        

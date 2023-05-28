@@ -1,0 +1,28 @@
+.c-title{
+ margin: 0
+}
+.address-box{
+    height: 512px;
+    width: 100%;
+    border: 1px solid black;
+    padding: 8px;
+    margin-top: 32px;
+
+}
+
+.place-order-button{
+    height: 48px;
+    width: 128px;
+    text-align: center;
+    color: white;
+    background: green;
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+.radio-style{
+    text-align: center;
+    border: "1px solid gray";
+     margin: "32px";
+     height: "72px"
+}
