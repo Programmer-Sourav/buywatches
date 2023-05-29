@@ -11,6 +11,7 @@ export default function ProductList(){
     const updatedProducts = () =>{
        
         let sortedProducts = productsState
+      
 
         if(range){
             sortedProducts = sortedProducts.filter((item)=>item.price<=range)
@@ -20,7 +21,7 @@ export default function ProductList(){
             sortedProducts = sortedProducts.sort((p1, p2)=> sortByPrice==="lTh"? p1.price - p2.price : productsState)
             sortedProducts = sortedProducts.sort((p1, p2)=> sortByPrice==="hTl"? p2.price - p1.price : productsState)
         }
-        if(byRatings){
+        if(byRatings.length>0){
             if(byRatings<3){
             sortedProducts = sortedProducts.filter((product)=>product.ratings<=3)
             }
@@ -35,19 +36,23 @@ export default function ProductList(){
         }
 
         if(byCategory.length>0){
+         
         sortedProducts = sortedProducts.filter((item)=> byCategory.includes(item.Category))
+       
         }
         if(byGender.length>0){
-            console.log(6666, byGender)
         sortedProducts = sortedProducts.filter((item)=> byGender.includes(item.gender))
+        
         }
         if(byUse.length>0){
         sortedProducts = sortedProducts.filter((item)=> byUse.includes(item.use))
+        
         }
         
-        if(search.length>0){
+        if(search.trim()!=""){
         sortedProducts = search ? sortedProducts.filter((product)=> product.item.toUpperCase().includes(search.toUpperCase())) : productsState  
         }
+        
         return sortedProducts 
     }
    
@@ -55,6 +60,7 @@ export default function ProductList(){
         <div className="list-layout"> 
         
         <ProductFilter/>
+      
         
         <div className="list-right">
             {

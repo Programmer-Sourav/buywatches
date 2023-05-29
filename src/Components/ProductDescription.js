@@ -1,20 +1,45 @@
 import { useParams } from "react-router"
 import "../Stylesheets/productdescription.css"
 import { useContext } from "react"
-import { ProductsContext } from ".."
+import { AuthContext, ProductsContext } from ".."
+import { CartContext } from ".."
+import { WishListContext } from ".."
+import { addToCart, addToWishlist } from "../Utils/NetworkApis"
+import { useNavigate } from "react-router-dom"
+
 
 export default function ProductDescription(){
   const { pid } = useParams()
 
+  const {cart,cartDispatch} = useContext(CartContext)
+  const { wishListState, wishListDispatcher } = useContext(WishListContext)
   const { productsState } = useContext(ProductsContext)
-  console.log("***",productsState, pid)
+  const { token } = useContext(AuthContext)
+  
+  const navigate = useNavigate()
+ 
   const copied = [...productsState]
-  console.log("####", copied)
+  
+  function checkIfTheItemIsInWishlist(item_id){
+    const itemFound = wishListState.find((item)=>item._id === item_id)
+    return itemFound
+  }
 
+  function checkIfITemIsInTheCart(data){
+     const itemFound = cart.find((item)=>item._id === data._id)
+    return itemFound
+  }
+
+  const goToCart = () =>{
+    navigate("/cart")
+  }
+
+  const goToWishlist = () =>{
+    navigate("/wishlist")
+  }
 
   const findProduct = findTheProduct(productsState, pid)
 
-  //console.log("JSON ", JSON.parse(localStorage.getItem("item")));
  
   //if(JSON.parse(localStorage.getItem("item"))._id !== pid){
   localStorage.setItem("item", JSON.stringify(findProduct))
@@ -51,8 +76,13 @@ export default function ProductDescription(){
     <p> <span> <strong>Seller:</strong> </span> <span>Apple store </span> </p>
     <p> <span> <strong>Color: </strong></span>  <span>Green </span> </p>
     </div>
-    <button onClick={{}} className="button-style-one"> Add To Wishlist </button>
-    <button onClick={{}} className="button-style-one"> Add To Bag </button>
+    {checkIfTheItemIsInWishlist(findProduct._id) ? 
+    <button onClick={goToWishlist} className="button-style-one">Go to Wishlist</button> :
+    <button onClick={()=>{addToWishlist(findProduct, token, wishListDispatcher)}} className="button-style-one"> Add To Wishlist </button>}
+
+    {checkIfITemIsInTheCart(findProduct) ?
+      <button onClick={goToCart} className="button-style-one">Go to Cart</button> :
+      <button onClick={()=>{addToCart(findProduct, token, cartDispatch)}} className="button-style-one">Add To Cart</button>}
     </div>
     </div>
   )

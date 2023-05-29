@@ -41,6 +41,9 @@ export default function FixedHeader(){
     <span onClick={()=>searchItem(searchInput)}><i class="fa fa-search" aria-hidden="true"></i></span>
     <div className="icons">
     <div className = "cart">
+    <Link to ="/store"><i className="fa fa-product-hunt" title="Cart" style={{color: "white", fontSize: "20px"}}></i></Link>
+    </div> 
+    <div className = "cart">
     <Link to ="/cart"><i className="fa fa-shopping-cart" title="Cart" style={{color: "white", fontSize: "20px"}}></i></Link>
     
     </div>

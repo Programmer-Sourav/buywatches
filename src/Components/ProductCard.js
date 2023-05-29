@@ -14,7 +14,7 @@ export default function ProductCard({data}){
   const {_id, tag, brand, category, color, discounted_price, id, img, item, price, title} = data;
   const {cart,cartDispatch} = useContext(CartContext)
   const { wishListState, wishListDispatcher } = useContext(WishListContext)
-  const { token } = useContext(AuthContext)
+  const { token, isLoggedIn } = useContext(AuthContext)
   const pid = _id;
   const navigate = useNavigate();
   
@@ -36,16 +36,32 @@ export default function ProductCard({data}){
       navigate("/cart")
     }
 
+   const checkLoginAndAddToCart = () =>{
+    if(isLoggedIn){
+    addToCart(data, token, cartDispatch)
+    }
+    else{
+      toast.error("Please Login First")
+    }
+   }
 
+   const checkLoginAndAddToWishlist = () =>{
+    if(isLoggedIn){
+      addToWishlist(data, token, wishListDispatcher)
+    }
+    else{
+      toast.error("Please Login First")
+    }
+   }
 
   
     return(
     
      <div className="product-card-layout" >
       {
-        checkIfTheItemIsInWishlist(_id) ?
+       isLoggedIn &&  checkIfTheItemIsInWishlist(_id) ?
       <span className='clickableIcon' onClick={()=>{removeFromWishList(_id, token, wishListDispatcher)}}><i class="fa fa-heart" style={{color: "red"}}></i></span> :
-      <span className='clickableIcon' onClick={()=>{addToWishlist(data, token, wishListDispatcher)}}><i class="fa fa-heart"></i></span>
+      <span className='clickableIcon' onClick={()=>checkLoginAndAddToWishlist()}><i class="fa fa-heart"></i></span>
       }
      <div className="product-parent" onClick={()=>{navigate(`/description/${pid}`)}}>
       <img src={img} alt="productimg" className="image-style" />
@@ -59,9 +75,9 @@ export default function ProductCard({data}){
       </div>
       </div>
       
-     {checkIfITemIsInTheCart(data) ?
+     { isLoggedIn && checkIfITemIsInTheCart(data) ?
       <button onClick={goToCart} className="button-bg-two">Go to Cart</button> :
-      <button onClick={()=>{addToCart(data, token, cartDispatch)}} className="button-bg-two">Add To Cart</button>}
+      <button onClick={()=>checkLoginAndAddToCart()} className="button-bg-two">Add To Cart</button>} 
       </div>
       
     )

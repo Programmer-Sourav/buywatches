@@ -5,28 +5,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { ACTION_TYPES_FOR_WISHLIST } from "../reducer/WishlistReducer";
 
 
-
-
-export const getCart= async (token) =>{
-    try{
-         const res = await fetch("/api/user/cart",{
-            method: 'GET',
-            headers: {
-                authorization: token,
-              }
-        })
-
-        const { cart } = await res.json();
-        console.log(6565, cart)
-    }
-    catch(e){
-    console.error(e)
-    }
-
-}
-
 export const addToCart = async (cartItem, token, cartDispatch) =>{
-   
+   console.log("ADD TO CART ", cartItem)
     try{
       
         const res = await fetch("/api/user/cart",{
@@ -41,7 +21,7 @@ export const addToCart = async (cartItem, token, cartDispatch) =>{
         
        
         const { cart } = await res.json();
-       // console.log("4455cart", cart)
+       
         cartDispatch({type: "ADD_TO_CART", payload: cartItem })
         toast.success("Item successfully added to the cart")  
         
@@ -54,7 +34,7 @@ export const addToCart = async (cartItem, token, cartDispatch) =>{
 
 export const deleteItemFromCart = async (cartItem,token) =>{
     try{
-        const productId = cartItem.id
+        const productId = cartItem._id
         console.log("1245678", productId)
         const res = await fetch(`/api/user/cart/${productId}`,{
             method: 'DELETE',
