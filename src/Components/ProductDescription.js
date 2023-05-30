@@ -21,7 +21,7 @@ export default function ProductDescription(){
   
   const navigate = useNavigate()
  
-  const copied = [...productsState]
+  //const copied = [...productsState]
   
   function checkIfTheItemIsInWishlist(item_id){
     const itemFound = wishListState.find((item)=>item._id === item_id)
@@ -51,9 +51,7 @@ export default function ProductDescription(){
   function findTheProduct(productsState, pid){
     return productsState.find((product)=>product._id === pid)
   }
-  useEffect(()=>{
-  const savedItem = (JSON.parse(localStorage.getItem("item")))
-  setItem(savedItem)}, [])
+ 
 
   const checkLoginAndAddToCart = () =>{
     if(isLoggedIn){

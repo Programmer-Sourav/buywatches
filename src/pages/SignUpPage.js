@@ -12,7 +12,7 @@ export default function SignUpPage(){
     const [ password, setPassword ] = useState("")
     const [ confirmPass, setConfirmPass ] = useState("")
     const [ showPassword, setShowPassword ] = useState(true)
-    const { token, setToken, setIsLoggedIn} = useContext(AuthContext)
+    const { token, setToken, setIsLoggedIn, registeredEmail, setRegisteredEmail, emailPassword, setEmailPassword } = useContext(AuthContext)
     const navigate = useNavigate()
 
 
@@ -25,7 +25,9 @@ export default function SignUpPage(){
                     password: password,
                     confirmPass: confirmPass
                 }
-
+        setRegisteredEmail(email)
+        setEmailPassword(password)
+        
         if(email.trim()!==""|| firstName.trim()!=="" || lastName.trim()!=="" || password.trim()!==""|| confirmPass.trim()!==""){        
         if(password === confirmPass){
                 const res = await fetch("api/auth/signup",{

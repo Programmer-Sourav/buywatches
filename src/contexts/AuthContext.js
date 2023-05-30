@@ -6,13 +6,14 @@ export function AuthProvider ({children}){
 
     const [token, setToken] = useState(localStorage.getItem("encodedToken"))
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    console.log("check", isLoggedIn)
+    const [registeredEmail, setRegisteredEmail] = useState("")
+    const [emailPassword, setEmailPassword ] = useState("") 
 
      const logoutHandler = () =>{
         setIsLoggedIn(false)
      }
     
     return(
-        <AuthContext.Provider value={{token, setToken, isLoggedIn, setIsLoggedIn, logoutHandler}}> {children} </AuthContext.Provider>
+        <AuthContext.Provider value={{token, setToken, isLoggedIn, setIsLoggedIn, logoutHandler, setRegisteredEmail, setEmailPassword, registeredEmail, emailPassword}}> {children} </AuthContext.Provider>
     )
 }
