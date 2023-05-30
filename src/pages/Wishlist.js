@@ -3,8 +3,9 @@ import "../Stylesheets/productcard-wishlist.css"
 import { CartContext } from "../contexts/CartContext"
 import { WishListContext } from "../contexts/WishListContext"
 import { ACTION_TYPES_FOR_WISHLIST } from "../reducer/WishlistReducer"
-import { addToCart, removeFromWishList } from "../Utils/NetworkApis";
+import { addToCart, incrementQuantity, removeFromWishList } from "../Utils/NetworkApis";
 import { AuthContext } from "../contexts/AuthContext"
+import { ACTION_TYPES_FOR_CART } from "../reducer/CartReducer"
 
 
 export default function Wishlist(){
@@ -29,7 +30,7 @@ export default function Wishlist(){
         <span className="item-offer-my-cart"><strong>10% Off</strong></span>
         <div>
         <button onClick={()=>{removeFromWishList(wishlistItem._id, token, wishListDispatcher)}} className="button-bg-two">Remove</button>
-        <button onClick={()=>{addToCart(wishlistItem, token, cartDispatch), removeFromWishList(wishlistItem._id, token, wishListDispatcher)}} className="button-bg-four">Move To Cart</button>
+        <button onClick={()=>{incrementQuantity(wishlistItem, token), cartDispatch({type: ACTION_TYPES_FOR_CART.ADD_TO_CART_OR_INCREMENT_QTY, payload: wishlistItem}), removeFromWishList(wishlistItem._id, token, wishListDispatcher)}} className="button-bg-four">Move To Cart</button>
         </div>
         </div>
         

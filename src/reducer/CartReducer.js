@@ -17,9 +17,28 @@ export const cartReducer = (state, action) =>{
        
         return {...state, currentcart: [...state.currentcart, {...action.payload, quantity: 1}] }
 
-        case ACTION_TYPES_FOR_CART.INCREMENT_QTY:
-
-        return {...state, currentcart: [...state.currentcart].map((cartItem)=> cartItem._id===action.payload? {...cartItem, quantity: cartItem.quantity+1} :cartItem ) }
+        case ACTION_TYPES_FOR_CART.ADD_TO_CART_OR_INCREMENT_QTY:
+     
+        const itemFound = state.currentcart.find(
+            cartItem => cartItem._id === action.payload._id,
+          );
+       
+          if (itemFound) {
+            return {
+              ...state,
+              currentcart: [...state.currentcart].map((cartItem)=> cartItem._id===action.payload._id
+                ? {
+                  ...cartItem,
+                  quantity: cartItem.quantity + 1,
+                }
+                : cartItem
+              )
+            };
+        }
+            return {
+                ...state,
+                currentcart: [...state.currentcart, {...action.payload, quantity: 1}]
+              };
         
         case ACTION_TYPES_FOR_CART.DECREMENT_QTY: 
         return {...state, currentcart: [...state.currentcart].map((cartItem)=>cartItem._id===action.payload ? {...cartItem, quantity: cartItem.quantity-1} : cartItem)}

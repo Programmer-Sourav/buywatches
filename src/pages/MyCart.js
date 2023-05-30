@@ -50,7 +50,7 @@ export default function MyCart(){
             <span className="item-current-price-my-cart"><strong>{cartItem.discounted_price}</strong></span>
             <button onClick={()=>{decrementQuantity(cartItem._id, token), cartDispatch({type: ACTION_TYPES_FOR_CART.DECREMENT_QTY, payload: cartItem._id})}} style={{margin: "16px"}} className="button-small" disabled = {cartItem.quantity>0? false : true}>-</button>
             <span><strong>{cartItem.quantity}</strong></span>
-            <button onClick={()=>{incrementQuantity(cartItem._id,  token), cartDispatch({type: ACTION_TYPES_FOR_CART.INCREMENT_QTY, payload: cartItem._id})}} style={{margin: "16px"}} className="button-small">+</button>
+            <button onClick={()=>{incrementQuantity(cartItem._id,  token), cartDispatch({type: ACTION_TYPES_FOR_CART.ADD_TO_CART_OR_INCREMENT_QTY, payload: cartItem})}} style={{margin: "16px"}} className="button-small">+</button>
             <div>
             <button onClick={()=>{deleteItemFromCart(cartItem, token), cartDispatch({type: ACTION_TYPES_FOR_CART.REMOVE_FROM_CART, payload: cartItem })}} className="button-bg-two">Remove from Cart</button>
             <button onClick={()=>{deleteItemFromCart(cartItem, token), cartDispatch({type: ACTION_TYPES_FOR_CART.REMOVE_FROM_CART, payload: cartItem }), addToWishlist(cartItem, token, wishListDispatcher)}} className="button-bg-three">Move to Wishlist</button>

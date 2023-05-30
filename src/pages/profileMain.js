@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../contexts/AuthContext"
+import { toast } from "react-hot-toast";
 
 
 export default function ProfileMain(){
@@ -14,6 +15,7 @@ export default function ProfileMain(){
 
     function getMeOut(){
         logoutHandler(false)
+        toast.success("You are succesfully signed out")
         navigate("/store")
     }
 

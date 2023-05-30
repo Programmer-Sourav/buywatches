@@ -4,6 +4,7 @@ import FixedHeader from "../FixedHeader/FixedHeader"
 import "../Stylesheets/login-container.css"
 import { AuthContext } from "../contexts/AuthContext"
 import { useLocation, useNavigate } from "react-router";
+import { toast } from "react-hot-toast";
 
 
 export default function LoginPage(){
@@ -51,6 +52,47 @@ export default function LoginPage(){
         catch(e){
         console.error(e)
         }
+    }
+
+
+        const guestSignInBtn = async (email, password) =>{
+            console.log("Email", email)
+            console.log("Password", password)
+            try{
+                const creds = {
+                    email: email,
+                    password: password
+    
+                }
+    
+                const res = await fetch("api/auth/login",{
+                    method: 'POST',
+                    body: JSON.stringify(creds)
+                })
+    
+                const { encodedToken } = await res.json();
+    
+                setToken(localStorage.setItem("encodedToken", encodedToken))
+                console.log(441, localStorage.getItem("encodedToken"))
+
+               
+                if(localStorage.getItem("encodedToken")){
+                setIsLoggedIn(true)
+                console.log("IsLoggedIn", isLoggedIn)
+                const result = navigate(location?.state?.from?.pathname);
+            
+              
+                localStorage.setItem("encodedToken", encodedToken)
+                //console.log(441, localStorage.getItem("encodedToken"))
+                
+            }
+                
+    
+            }
+            catch(e){
+            console.error(e)
+            }
+    
 
      }
     return(
@@ -67,7 +109,8 @@ export default function LoginPage(){
             </div>
             <p> Forgot Password? </p>
             <button onClick={()=>{signInBtn(email, password)}} className="sign-button">Sign In</button>
-            <p> Don't have an account? Sign up</p>
+            <button onClick={()=>{guestSignInBtn("abc@gmail.com", "snath")}} className="sign-button"> Test  Sign In</button>
+            <p> Don't have an account? <a href="/signup">Sign up</a></p>
        </div>
        </div>
        </div>
