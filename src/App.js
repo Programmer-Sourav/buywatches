@@ -21,6 +21,7 @@ import Wishlist from "./pages/Wishlist";
 import Checkout from "./pages/Checkout";
 import AddressPage from "./pages/AddressPage";
 import ProfileMain from "./pages/profileMain";
+import SignUpPage from "./pages/SignUpPage";
 
 
 
@@ -54,6 +55,7 @@ function App() {
         <Route path="/profile-details" element={<RequiresAuth><AddressPage/></RequiresAuth>}/>
         <Route path="/address" element={<RequiresAuth><AddressPage/></RequiresAuth>}/>
         <Route path="/success" element={<Success/>}/>
+        <Route path="/signup"  element={<SignUpPage/>}/>
 
        </Routes>
     </div>

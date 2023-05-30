@@ -59,8 +59,6 @@ export const deleteItemFromCart = async (cartItem,token) =>{
 }
 
 export const incrementQuantity =async ( productId,  token) =>{
-    // console.log("INCR", productId)
-    // console.log("TOKEN", token)
     const value = {action: {
         type: "increment"
     }}
