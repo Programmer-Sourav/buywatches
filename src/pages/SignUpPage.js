@@ -34,20 +34,17 @@ export default function SignUpPage(){
                     method: 'POST',
                     body: JSON.stringify(data)
                 })
-    
-                const { encodedToken } = await res.json();
-    
-                setToken(localStorage.setItem("encodedToken", encodedToken))
-                console.log(441, localStorage.getItem("encodedToken"))
-                setIsLoggedIn(true)
-              
-                const result = navigate("/profile");
-               
-              
                 
-    
+                const { encodedToken } = await res.json();
+                
                 localStorage.setItem("encodedToken", encodedToken)
-                console.log(441, localStorage.getItem("encodedToken"))
+               
+                if(localStorage.getItem("encodedToken")){
+                    setIsLoggedIn(true)
+                    setToken(localStorage.getItem("encodedToken"))
+                    const result = navigate("/profile");
+                }
+        
                 if(localStorage.getItem("encodedToken")!== "undefined"){
                     
                 }

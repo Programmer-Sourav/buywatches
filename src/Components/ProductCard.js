@@ -18,7 +18,6 @@ export default function ProductCard({data}){
   const pid = _id;
   const navigate = useNavigate();
   
-
     const discount_percentage = (Math.round(100 - Number(discounted_price)*100/Number(price)))
   
 

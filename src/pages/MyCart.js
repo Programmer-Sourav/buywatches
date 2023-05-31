@@ -19,7 +19,7 @@ export default function MyCart(){
     const { token } = useContext(AuthContext)
     const { dispatch } = useContext( ProductsContext )
     const { wishListDispatcher } = useContext( WishListContext )
-    //console.log("14566", cart.length)
+    //console.log("14566", token)
     //{_id, tag, brand, category, color, discounted_price, id, img, item, price, title}
 
     const totalPrice = cart.reduce((acc, cur)=>acc+ cur.price*cur.quantity,0)

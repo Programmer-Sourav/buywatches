@@ -6,7 +6,7 @@ import { ACTION_TYPES_FOR_WISHLIST } from "../reducer/WishlistReducer";
 
 
 export const addToCart = async (cartItem, token, cartDispatch) =>{
-   console.log("ADD TO CART ", cartItem)
+
     try{
       
         const res = await fetch("/api/user/cart",{
@@ -24,6 +24,7 @@ export const addToCart = async (cartItem, token, cartDispatch) =>{
        
         cartDispatch({type: "ADD_TO_CART", payload: cartItem })
         toast.success("Item successfully added to the cart")  
+        console.log(111, cart)
         
     }
     catch(e){
@@ -125,7 +126,7 @@ export const decrementQuantity =async (productId, token) =>{
 }
 
 export const addToWishlist = async (wishlistItem, token, wishListDispatcher) =>{
-   console.log(5566, JSON.stringify(wishlistItem))
+   //console.log(5566, JSON.stringify(wishlistItem))
     try{
       
         const res = await fetch("/api/user/wishlist",{
