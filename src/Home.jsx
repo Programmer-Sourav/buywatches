@@ -45,8 +45,6 @@ export const AuthToken =() =>{
 
 return(
     <div>
-    <button onClick={getData}>Hello!!!!</button>
-    <button onClick={getFire}>Fire here</button>
     <Categories/>
     </div>
 )

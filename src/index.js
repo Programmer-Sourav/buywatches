@@ -20,7 +20,7 @@ export { CartContext }
 export { WishListContext }
 
 
-//export { AuthToken }
+
 
 ReactDOM.render(
   <React.StrictMode>

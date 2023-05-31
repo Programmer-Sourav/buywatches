@@ -33,15 +33,9 @@ function App() {
   
   return (
     <div className="App">
-       {<Toaster position="top-right" reverseOrder={true} />}
+       {<Toaster position="bottom-right" reverseOrder={true} />}
        <FixedHeader/>
-       {/* <ProductFilter/> */}
-       {/* <ProductCard/> */}
-       {/* <ProductDescription/> */}
-       {/* <ProductCardForWishlist/> */}
-       {/* <MyCart/> */}
-       {/* <LoginPage/> */}
-       
+      
        <Routes> 
         {/* <Route path="/" element={<h1>Hello Welcome</h1>}/> */}
         <Route path="/" element={<AuthToken/>}/>
