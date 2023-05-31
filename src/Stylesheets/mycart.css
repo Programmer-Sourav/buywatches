@@ -1,33 +1,38 @@
 .mycart-container{
+    
     margin: 32px;
-   
+    align-items: center;
+    
+    
 }
 
-.my-cart{
-    width: 100%
+.mycart{
+  margin: 32px;
+  align-items: left;
+  right: 256px;
+  width: 256px;
 }
 
 .mycart-style{
-    float: left;
-    text-align: left;
+    flex: row;
+    align-items: flex-start;
+    
     width: 416px;
     height: 152px;
     margin-left: 128px;
     margin-top: 48px;
     border: 1px solid gainsboro;
     padding-left: 8px;
-    float: left;
+    
     
   }
   
   .details-div{
-    float: left;
-    margin: 16px;
-    width: 292px;
-    height: 392px;
-    margin-top: 48px;
-    padding-left: 16px;
-    margin-left: 64px;
+   
+    width: 360px;
+    position: fixed;
+    right: 128px;
+    top: 192px;
     border: 0.5px solid gainsboro;
     box-shadow: 4px 4px 4px gainsboro;
     

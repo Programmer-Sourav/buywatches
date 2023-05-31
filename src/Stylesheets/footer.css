@@ -1,0 +1,17 @@
+.navigation-footer{
+    background-color: #d64045;
+    position: fixed;
+    left: 0;
+    height: 40px;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
+
+  .footer-icons{
+    display: flex;
+    text-align: center;
+  }
+  
+  

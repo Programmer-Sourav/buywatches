@@ -1,4 +1,6 @@
-import "../Stylesheets/header.css";
+import "../Stylesheets/footer.css";
+
+
 import 'font-awesome/css/font-awesome.min.css';
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -7,7 +9,7 @@ import { ProductsContext } from "../contexts/ProductsContext";
 import { ACTION_TYPES } from "../reducer/ProductsReducer";
 
 
-export default function FixedHeader(){
+export default function Footer(){
 
   const [searchInput, setSearchInput ] = useState("")
   const { dispatch } = useContext(ProductsContext)
@@ -35,13 +37,11 @@ export default function FixedHeader(){
 
   return(
     <div> 
-    <div className="navigation-header"> 
-    <h2 className="name-div"> BuyYourTime </h2>
-    <input type="search"  placeholder="Enter any item name to Search here...                       &#xF002;" value = {searchInput} className = "search-container" onChange={(e)=>onChangeHandler(e)}/>
+    <div className="navigation-footer"> 
     
     <div className="icons">
-    <div className = "cart">
-    <Link to ="/store"><i className="fa fa-product-hunt" title="Products" style={{color: "white", fontSize: "20px"}}></i></Link>
+    <div className = "footer-icons">
+    <Link to ="/store"><i className="fa fa-product-hunt" title="Cart" style={{color: "white", fontSize: "20px"}}></i></Link>
     </div> 
     <div className = "cart">
     <Link to ="/cart"><i className="fa fa-shopping-cart" title="Cart" style={{color: "white", fontSize: "20px"}}></i></Link>

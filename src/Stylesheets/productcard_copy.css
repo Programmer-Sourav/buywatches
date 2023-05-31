@@ -1,0 +1,84 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins&display=swap";
+body {
+  font-family: Poppins, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-card-img,
+.cart-card-cont,
+.cart-card-badge,
+.cart-card-details {
+  display: flex;
+  align-items: center;
+}
+.cart-card-cont {
+  flex-direction: row;
+  background-color: #fff;
+  width: max-content;
+  align-items: flex-start;
+}
+.cart-card-details {
+  flex-direction: column;
+  width: 240px;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.item-price {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+.cart-card-details * {
+  margin: 0;
+}
+.item-price h4 {
+  color: #9a9a9a;
+}
+.cart-card-details-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 2rem;
+}
+.image-style {
+  justify-content: center;
+  background: rgba(196, 196, 196, 0.5);
+  width: 13rem;
+  height: 15rem;
+  position: relative;
+  padding: 2rem 1rem;
+}
+.image-style img {
+  height: 90%;
+  width: auto;
+}
+.card-badge {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 999px;
+  box-shadow: 4px 4px 4px gray;
+  width: 2rem;
+  height: 2rem;
+  justify-content: center;
+  top: 1rem;
+  right: 1rem;
+}
+.card-badge .red-fav {
+  color: red;
+}
+.card-details {
+  padding: 1rem 2rem;
+}
+.button-bg-two {
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  width: 240px;
+  background-color: #9a9a9a;
+}
