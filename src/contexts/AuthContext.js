@@ -4,7 +4,7 @@ export const AuthContext = createContext()
 
 export function AuthProvider ({children}){
 
-    const [token, setToken] = useState(localStorage.getItem("encodedToken"))
+    const [token, setToken] = useState()
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [registeredEmail, setRegisteredEmail] = useState("")
     const [emailPassword, setEmailPassword ] = useState("") 

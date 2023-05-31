@@ -26,28 +26,31 @@ export default function LoginPage(){
                 password: password
 
             }
-
+            console.log(6666, JSON.stringify(creds))
             const res = await fetch("api/auth/login",{
                 method: 'POST',
                 body: JSON.stringify(creds)
             })
+            const response = await res.json();
+            const { encodedToken } = response;
+            localStorage.setItem("encodedToken", encodedToken)
 
-            const { encodedToken } = await res.json();
-
-            setToken(localStorage.setItem("encodedToken", encodedToken))
-            console.log(441, localStorage.getItem("encodedToken"))
-            setIsLoggedIn(true)
-            console.log("IsLoggedIn", isLoggedIn)
-            const result = navigate(location?.state?.from?.pathname);
+            if(localStorage.getItem("encodedToken")){
+                setIsLoggedIn(true)
+                setToken(localStorage.getItem("encodedToken"))
+                console.log("IsLoggedIn", isLoggedIn)
+                const result = navigate(location?.state?.from?.pathname);
+                
+            }
             //navigate("/fakewelcome")
           
             
 
-            localStorage.setItem("encodedToken", encodedToken)
-            //console.log(441, localStorage.getItem("encodedToken"))
-            if(localStorage.getItem("encodedToken")!== "undefined"){
+            // localStorage.setItem("encodedToken", encodedToken)
+            // //console.log(441, localStorage.getItem("encodedToken"))
+            // if(localStorage.getItem("encodedToken")!== "undefined"){
                 
-            }
+            // }
 
         }
         catch(e){
@@ -65,28 +68,23 @@ export default function LoginPage(){
                     password: password
     
                 }
-    
+                console.log(7777, JSON.stringify(creds))
                 const res = await fetch("api/auth/login",{
                     method: 'POST',
                     body: JSON.stringify(creds)
                 })
     
                 const { encodedToken } = await res.json();
-    
-                setToken(localStorage.setItem("encodedToken", encodedToken))
-                console.log(441, localStorage.getItem("encodedToken"))
+                localStorage.setItem("encodedToken", encodedToken)
 
                
                 if(localStorage.getItem("encodedToken")){
-                setIsLoggedIn(true)
-                console.log("IsLoggedIn", isLoggedIn)
-                const result = navigate(location?.state?.from?.pathname);
-            
-              
-                localStorage.setItem("encodedToken", encodedToken)
-                //console.log(441, localStorage.getItem("encodedToken"))
-                
-            }
+                    setIsLoggedIn(true)
+                    setToken(localStorage.getItem("encodedToken"))
+                    console.log("IsLoggedIn", isLoggedIn)
+                    const result = navigate(location?.state?.from?.pathname);
+                    
+                }
                 
     
             }
