@@ -7,12 +7,12 @@ import "../Stylesheets/productslist.css"
 
 export default function ProductList(){
 
-    const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse, productsState, search } = useContext(ProductsContext)
+    const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse, productsState, search, loading, setLoading } = useContext(ProductsContext)
     
     const updatedProducts = () =>{
        
         let sortedProducts = [...productsState]
-      
+        
 
         if(range){
             sortedProducts = sortedProducts.filter((item)=>item.price<=range)
@@ -38,7 +38,7 @@ export default function ProductList(){
 
         if(byCategory.length>0){
          
-        sortedProducts = sortedProducts.filter((item)=> byCategory.includes(item.Category))
+        sortedProducts ? sortedProducts = sortedProducts.filter((item)=> byCategory.includes(item.Category)) : productsState
        
         }
         if(byGender.length>0){
@@ -61,16 +61,15 @@ export default function ProductList(){
         <div className="list-layout"> 
         
         <ProductFilter/>
-      
-        
+
         <div className="list-right">
-            {   
+            {  
             updatedProducts().length===0 ? <h2 className="warning-text">No items found. Please Try again...</h2> : updatedProducts().map((product)=>(
                 <ProductCard data = {product}/>
 
             ))}
         </div>
-       
+        
         </div>
     )
 }

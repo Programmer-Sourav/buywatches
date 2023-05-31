@@ -101,8 +101,7 @@ export const productsReducer = (state, action) =>{
         return { ...state, address: [...state.address, action.payload]}    
 
         case ACTION_TYPES.DELETE_ADDRESS: 
-        console.log(2245, state.address)
-        console.log(2324, action.payload)
+     
         return {...state, address: state.address.filter((item)=>item.id!=action.payload)}
        
         case ACTION_TYPES.CLEAR:

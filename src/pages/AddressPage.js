@@ -42,7 +42,7 @@ export default function AddressPage(){
         console.log({type: ACTION_TYPES.DELETE_ADDRESS, payload: itemId})
     }
 
-
+   console.log("Length ", address.length)
     return(
         <div> 
             <h1> Address Management</h1>
