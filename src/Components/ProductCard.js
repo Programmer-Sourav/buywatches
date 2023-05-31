@@ -19,7 +19,7 @@ export default function ProductCard({data}){
   const navigate = useNavigate();
   
 
-    const discount_percentage = Math.round((price-discounted_price/100))
+    const discount_percentage = (Math.round(100 - Number(discounted_price)*100/Number(price)))
   
 
     function checkIfTheItemIsInWishlist(item_id){
@@ -57,7 +57,7 @@ export default function ProductCard({data}){
   
     return(
     
-     <div className="product-card-layout" >
+     <div className="product-card-layout" key={id}>
       {
        isLoggedIn &&  checkIfTheItemIsInWishlist(_id) ?
       <span className='clickableIcon' onClick={()=>{removeFromWishList(_id, token, wishListDispatcher)}}><i class="fa fa-heart" style={{color: "red"}}></i></span> :
@@ -68,9 +68,9 @@ export default function ProductCard({data}){
       
       <p className="item-tags"> {title} </p>
       <p className="item-name" > <strong> {item} </strong></p>
-      <span className="item-price"> ₹{price}</span>
-       <span className="item-discount"> ₹{discounted_price}</span>
-       <span className="discount">{discount_percentage}</span>
+      <span className="item-price"> ₹{discounted_price}</span>
+       <span className="item-discount"> ₹{price}</span>
+       <span className="discount">{discount_percentage} % Off</span>
        <div>
       </div>
       </div>

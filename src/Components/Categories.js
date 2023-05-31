@@ -5,6 +5,7 @@ import { ProductsContext } from "../contexts/ProductsContext";
 import { ACTION_TYPES } from "../reducer/ProductsReducer";
 import { useContext, useEffect, useState } from "react";
 
+
 export default function Categories(){
     const { dispatch } = useContext(ProductsContext)
     const navigate = useNavigate()
@@ -35,7 +36,7 @@ export default function Categories(){
     return(
         <div> 
      {categories.map((category)=>(
-        <h1 onClick={()=>goTo(category.Category)}>{category.Category}  </h1>
+        <li onClick={()=>goTo(category.Category)} style={{border:"2px solid red", background:"#ffecf1", margin: "16px", listStyle:"none", height:"172px", textAlign:"center", padding:"8px", fontSize:"32px", color:"orangered", cursor:"pointer"}}>{category.Category} category collections </li>
     ))}
 
         </div>

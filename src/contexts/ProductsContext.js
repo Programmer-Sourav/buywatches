@@ -26,7 +26,7 @@ export function ProductsProvider({children}){
 
     const { products } = await response.json();
     //console.log(products)
-    setLoading(false)
+   
     //setProductsList(products)
     dispatch(
         {type: ACTION_TYPES.INITIALIZE,
@@ -43,13 +43,13 @@ export function ProductsProvider({children}){
    }
    
 
-   useEffect(()=>{getProducts()},[])
+   useEffect(()=>{setTimeout(() => {getProducts()}, 1000)},[])
 
    useEffect(()=>{getAddress()},[])
    
 
     return(
-        <ProductsContext.Provider value = {{ loading, state, productsState: state.currentProducts, sortByPrice: state.sortByPrice, range: state.range, byAvailability: state.byAvailability, byRatings: state.byRatings, byGender: state.byGender, byCategory: state.byCategory, byUse: state.byUse, dispatch, search : state.search, priceDetails: state.priceDetails, addressState: state.address, address, addAddressHandler }}>{children}</ProductsContext.Provider>
+        <ProductsContext.Provider value = {{ loading, state, productsState: state.currentProducts, sortByPrice: state.sortByPrice, range: state.range, byAvailability: state.byAvailability, byRatings: state.byRatings, byGender: state.byGender, byCategory: state.byCategory, byUse: state.byUse, dispatch, search : state.search, priceDetails: state.priceDetails, addressState: state.address, address, addAddressHandler, loading , setLoading}}>{children}</ProductsContext.Provider>
     )
 
 }

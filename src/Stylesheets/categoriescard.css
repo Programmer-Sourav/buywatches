@@ -1,0 +1,23 @@
+.categories-container {
+    border:"2px sollid red";
+     background:"#ffecf1";
+      margin: "16px";
+       list-style:"none";
+        height:"172px";
+         text-align:"left";
+          padding:"8px";
+           font-size:"32px"
+  }
+  .card-two img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+  .card-two .footer {
+    width: 100%;
+    text-align: center;
+    background: white;
+    position: absolute;
+    height: 150px;
+    bottom: 0;
+  }

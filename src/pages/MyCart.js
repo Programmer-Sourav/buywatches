@@ -44,7 +44,7 @@ export default function MyCart(){
             <p> {cart.length} Item(s) is in your cart</p>
             <div className="mycart">
             {  cart.map((cartItem)=>(
-            <div className="mycart-style"> 
+            <div className="mycart-style" key={cartItem.id}> 
             <img src={cartItem.img} alt="downloadedimage" className="image-cart-style"/>
             <p className="item-name-cart"> <strong> {cartItem.item} </strong></p>
             <span className="item-current-price-my-cart"><strong>{cartItem.discounted_price}</strong></span>

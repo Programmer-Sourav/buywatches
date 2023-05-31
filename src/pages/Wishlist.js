@@ -22,12 +22,12 @@ export default function Wishlist(){
         <p> {wishListState.length} Item(s) is in wishlist</p>
         <div className="mycart">
        {  wishListState.map((wishlistItem)=>( 
-        <div className="mycart-style"> 
+        <div className="mycart-style" key={wishlistItem.id}> 
         <img src= {wishlistItem.img} alt="downloadedimage" className="image-cart-style"/>
         <p className="item-name-cart"> <strong> {wishlistItem.item} </strong></p>
-        <span className="item-current-price-my-cart"><strong>₹{wishlistItem.price}</strong></span>
-        <span className="item-price-my-cart"><strong>₹{wishlistItem.discounted_price}</strong></span>
-        <span className="item-offer-my-cart"><strong>10% Off</strong></span>
+        <span className="item-current-price-my-cart"><strong>₹{wishlistItem.discounted_price}</strong></span>
+        <span className="item-price-my-cart"><strong>₹{wishlistItem.price}</strong></span>
+        <span className="item-offer-my-cart"><strong> {(Math.round(100 - Number(wishlistItem.discounted_price)*100/Number(wishlistItem.price)))} % Off</strong></span>
         <div>
         <button onClick={()=>{removeFromWishList(wishlistItem._id, token, wishListDispatcher)}} className="button-bg-two">Remove</button>
         <button onClick={()=>{incrementQuantity(wishlistItem, token), cartDispatch({type: ACTION_TYPES_FOR_CART.ADD_TO_CART_OR_INCREMENT_QTY, payload: wishlistItem}), removeFromWishList(wishlistItem._id, token, wishListDispatcher)}} className="button-bg-four">Move To Cart</button>
