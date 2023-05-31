@@ -4,6 +4,7 @@
     justify-content:space-between;
     flex-direction: row;
     text-align: center;
+    
   }
   
   .icons{
@@ -26,7 +27,10 @@
     outline: none;
     width: 25%;
     align-self: center;
+    font-family: 'Helvetica', FontAwesome, sans-serif;
+    padding: 64px;
   }
+  
   .cart{
     display: flex;
     align-items: center;

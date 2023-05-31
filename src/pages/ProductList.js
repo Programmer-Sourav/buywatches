@@ -4,13 +4,14 @@ import ProductCard from "../Components/ProductCard";
 import ProductFilter from "../pages/ProductFilter"
 import "../Stylesheets/productslist.css"
 
+
 export default function ProductList(){
 
     const { productsList, sortByPrice, range, byAvailability, byRatings, byGender, byCategory, byUse, productsState, search } = useContext(ProductsContext)
     
     const updatedProducts = () =>{
        
-        let sortedProducts = productsState
+        let sortedProducts = [...productsState]
       
 
         if(range){
@@ -49,7 +50,7 @@ export default function ProductList(){
         
         }
         
-        if(search.trim()!=""){
+        if(search.trim()!=="" && search.length>1){
         sortedProducts = search ? sortedProducts.filter((product)=> product.item.toUpperCase().includes(search.toUpperCase())) : productsState  
         }
         
@@ -63,12 +64,13 @@ export default function ProductList(){
       
         
         <div className="list-right">
-            {
-            updatedProducts().map((product)=>(
+            {   
+            updatedProducts().length===0 ? <h2 className="warning-text">No items found. Please Try again...</h2> : updatedProducts().map((product)=>(
                 <ProductCard data = {product}/>
 
             ))}
         </div>
+       
         </div>
     )
 }

@@ -11,14 +11,15 @@ export default function LoginPage(){
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
 
-    const { token, setToken, isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
+    const { token, setToken, isLoggedIn, setIsLoggedIn, setRegisteredEmail, setEmailPassword } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
 
 
     const signInBtn = async (email, password) =>{
-        console.log("Email", email)
-        console.log("Password", password)
+    
+        setRegisteredEmail(email)
+        setEmailPassword(password)
         try{
             const creds = {
                 email: email,
@@ -56,8 +57,8 @@ export default function LoginPage(){
 
 
         const guestSignInBtn = async (email, password) =>{
-            console.log("Email", email)
-            console.log("Password", password)
+            setRegisteredEmail(email)
+            setEmailPassword(password)
             try{
                 const creds = {
                     email: email,

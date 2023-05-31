@@ -10,3 +10,11 @@
   flex-wrap: wrap;
  
 }
+
+.warning-text{
+  display: flex;
+  width: 60%;
+  color: orange;
+  display: inline-block;
+  align-items: center;
+}

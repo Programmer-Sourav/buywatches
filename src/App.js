@@ -22,6 +22,8 @@ import Checkout from "./pages/Checkout";
 import AddressPage from "./pages/AddressPage";
 import ProfileMain from "./pages/profileMain";
 import SignUpPage from "./pages/SignUpPage";
+import Footer from "./FixedHeader/Footer";
+
 
 
 
@@ -58,6 +60,7 @@ function App() {
         <Route path="/signup"  element={<SignUpPage/>}/>
 
        </Routes>
+       <Footer/>
     </div>
   );
 }
