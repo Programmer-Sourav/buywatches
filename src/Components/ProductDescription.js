@@ -16,7 +16,7 @@ export default function ProductDescription(){
   const { wishListState, wishListDispatcher } = useContext(WishListContext)
   const { productsState } = useContext(ProductsContext)
   const { token, isLoggedIn } = useContext(AuthContext)
-  const [ item, setItem ] = useState([])
+  const [ findProduct, setFindProduct ] = useState([])
 
   
   const navigate = useNavigate()
@@ -41,12 +41,31 @@ export default function ProductDescription(){
     navigate("/wishlist")
   }
 
-  const findProduct = findTheProduct(productsState, pid)
+  const found = findTheProduct(productsState, pid)
 
- 
-  //if(JSON.parse(localStorage.getItem("item"))._id !== pid){
-  localStorage.setItem("item", JSON.stringify(findProduct))
-  //}
+ useEffect(()=>{
+  const value = localStorage.getItem("founditem")
+  
+  if(value && typeof(value) !== 'undefined' && value != null){
+    localStorage.setItem("founditem", value)
+   if(JSON.parse(value)._id!=pid){
+    localStorage.setItem("founditem", JSON.stringify(found))
+   }
+  }
+  else{
+    localStorage.setItem("founditem", JSON.stringify(found))
+  }
+    setFindProduct(localStorage.getItem("founditem"))
+ },[])
+
+  
+  useEffect(()=>{
+    if(localStorage.getItem("founditem"))
+    setFindProduct(JSON.parse(localStorage.getItem("founditem")))
+
+  }, [])
+
+  
 
   function findTheProduct(productsState, pid){
     return productsState.find((product)=>product._id === pid)
