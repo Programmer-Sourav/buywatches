@@ -12,7 +12,7 @@ export default function Success(){
             "key": "rzp_test_IpvXn74a5utSvH", // Enter the Key ID generated from the Dashboard
             "amount": "amount", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             "currency": "INR",
-            "name": "Customer Name", //your business name
+            "name": "BuyYourTime", //your business name
             "description": "Test Transaction",
             "image": "https://example.com/your_logo",
             "order_id": "order_MHbVVGLCHGEKl6", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
