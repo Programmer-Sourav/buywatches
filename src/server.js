@@ -100,6 +100,7 @@ export function makeServer({ environment = "development" } = {}) {
       this.get("/user/addresses", getAllAddressesHandler.bind(this));
       this.post("/user/address", addNewAddressHandler.bind(this));
       this.delete("/user/address/:addressId", removeAddressHandler.bind(this));
+      this.passthrough("http://frill-frosted-rhythm.glitch.me/api/order")
     },
   });
 }

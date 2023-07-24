@@ -176,7 +176,28 @@ export const removeFromWishList = async (wishlistItem,token, wishListDispatcher)
     toast.error("Oops! Some Error Occured"+ e)  
     console.error(e)
     }
-    
 
 }
 
+
+export const createOrder = async (price) =>{
+    console.log("CO", price)
+    try{
+       
+        const res = await fetch(`http://frill-frosted-rhythm.glitch.me/api/order`,{
+            method: 'POST',
+            
+            body: JSON.stringify(price)
+        })
+        
+
+        const response = await res.json();
+        console.log(222, response)
+        
+    }
+    catch(e){
+    toast.error("Oops! Some Error Occured"+ e)  
+    console.error(e)
+    }
+
+}
