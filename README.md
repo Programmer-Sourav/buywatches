@@ -22,9 +22,8 @@ Technologies used:
   
 2. MockBee backend and apis for back-end 
 
-Scope to improve: 
-1. CSS and design
-2. Adding new features like payment etc
 
 https://github.com/Programmer-Sourav/razorpay-nodejs-backend
+
+Note: I have used the minimum CSS to build this app. My intention is to show the functionality and coding skills. 
 
